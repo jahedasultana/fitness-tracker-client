@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="footer footer-center p-10 bg-black text-white rounded">
       <div>
         <img src='https://i.ibb.co/ZWcm0D2/logo.jpg' className="w-16 h-16" alt="" />
-        <h2 className="text-3xl font-extrabold bg-gradient-to-r from-red-500 to-pink-400  text-transparent bg-clip-text ">Fitness Tracker</h2>
+        <h2 className="text-3xl font-extrabold text-violet-500 ">Fitness Tracker</h2>
       </div>
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>

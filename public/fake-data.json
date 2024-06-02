@@ -1,0 +1,83 @@
+[
+    {
+        "_id": "60b8d2958e620d45e6f68a81",
+        "title": "High-Intensity Interval Training (HIIT)",
+        "description": "An intense workout that combines short bursts of high-energy exercises followed.",
+        "total_bookings": 120,
+        "image": "https://i.ibb.co/Bwg34qt/young-healthy-man.jpg",
+        "category": "Cardio"
+     
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a82",
+        "title": "Yoga",
+        "description": "A calming class that focuses on flexibility, balance, and breathing.",
+        "total_bookings": 110,
+        "image": "https://i.ibb.co/VNrnzW3/brunette-woman.jpg",
+        "category": "popular"
+        
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a83",
+        "title": "Zumba",
+        "description": "A fun and energetic dance workout that combines Latin and international music with dance moves to create a dynamic.",
+        "total_bookings": 95,
+        "image": "https://i.ibb.co/0nb5f4W/sakil-vaia.jpg",
+        "category": "popular"
+    
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a84",
+        "title": "Spin Class",
+        "description": "An indoor cycling workout that burns calories and improves cardiovascular health. Led by motivating instructors.",
+        "total_bookings": 85,
+        "image": "https://i.ibb.co/b3CDvX6/Mosharof-vaia.jpg",
+        "category": "popular"
+       
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a85",
+        "title": "Pilates",
+        "description": "A low-impact exercise class that emphasizes core strength, flexibility, and proper postural alignment.",
+        "total_bookings": 80,
+        "image": "https://i.ibb.co/5KjW9RJ/Rokibul-vaia.jpg",
+        "category": "popular"
+      
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a86",
+        "title": "Bootcamp",
+        "description": "A full-body workout that combines strength training and cardio exercises for maximum calorie burn and .",
+        "total_bookings": 75,
+        "image": "https://i.ibb.co/w7SG3rF/man-weman.jpg",
+        "category": "Mixed"
+       
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a87",
+        "title": "Barre",
+        "description": "A ballet-inspired workout that uses a bar for stability while performing small, to tone muscles.",
+        "total_bookings": 70,
+        "image": "https://i.ibb.co/hBQhL7p/Time-gym.jpg",
+        "category": "popular"
+       
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a88",
+        "title": "Boxing",
+        "description": "A high-energy class that combines boxing techniques with cardio exercises for a full-body workout.",
+        "total_bookings": 65,
+        "image": "https://i.ibb.co/gPc0QC3/saki-vaia.jpg",
+        "category": "Cardio"
+       
+    },
+    {
+        "_id": "60b8d2958e620d45e6f68a89",
+        "title": "CrossFit",
+        "description": "A high-intensity fitness program incorporating elements from various sports and types of exercise to tone muscles.",
+        "total_bookings": 60,
+        "image": "https://i.ibb.co/MMNp9XY/Yeasin-vaia.jpg",
+        "category": "popular"
+        
+    }
+]

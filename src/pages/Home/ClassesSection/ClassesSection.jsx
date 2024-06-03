@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ClassesSectionCard from "./ClassesSectionCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const ClassesSection = () => {
+    const axiosPublic = useAxiosPublic();
 
-    const [classes, setClasses] = useState([]);
-    useEffect(()=>{
-        fetch('fake-data.json')
-        .then(res => res.json())
-        .then(data => {
-            const popularClasses = data.filter(item => item.category === "popular")
-            setClasses(popularClasses)
-        
-        })
-    },[])
+    const {data: classes =[] } = useQuery({
+        queryKey: ['classes'],
+        queryFn: async () =>{
+            const {data} = await axiosPublic.get('/classes')
+            return data;
+        }
+
+    })
+
+
     return (
         <div className="my-20">
                   <SectionTitle

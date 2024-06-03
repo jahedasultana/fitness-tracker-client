@@ -1,0 +1,44 @@
+[
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1a",
+        "name": "John Doe",
+        "review": "This platform has transformed my fitness journey. The tracking tools are incredibly accurate and easy to use.",
+        "image": "https://i.ibb.co/Bwg34qt/young-healthy-man.jpg",
+        "rating": 5
+    },
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1b",
+        "name": "Jane Smith",
+        "review": "I love the community feature. It keeps me motivated and engaged with my fitness goals. Highly recommend!",
+        "image": "https://i.ibb.co/VNrnzW3/brunette-woman.jpg",
+        "rating": 4
+    },
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1c",
+        "name": "Michael Brown",
+        "review": "The user interface is very intuitive. I can easily track my progress and set new goals. Great experience!",
+        "image": "https://i.ibb.co/0nb5f4W/sakil-vaia.jpg",
+        "rating": 5
+    },
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1d",
+        "name": "Emily White",
+        "review": "The support team is fantastic. They helped me get started and were there whenever I had questions. Five stars!",
+        "image": "https://i.ibb.co/b3CDvX6/Mosharof-vaia.jpg",
+        "rating": 5
+    },
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1e",
+        "name": "Chris Green",
+        "review": "I've tried many fitness apps, but this one stands out with its comprehensive features and user-friendly design.",
+        "image": "https://i.ibb.co/5KjW9RJ/Rokibul-vaia.jpg",
+        "rating": 4
+    },
+    {
+        "_id": "60d5ec49d8a59c001c8c6d1f",
+        "name": "Sarah Blue",
+        "review": "Amazing app! It has everything I need to stay on track with my fitness routine. Highly recommend to everyone.",
+        "image": "https://i.ibb.co/w7SG3rF/man-weman.jpg",
+        "rating": 5
+    }
+]

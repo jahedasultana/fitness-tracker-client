@@ -16,39 +16,35 @@ const AllClassesPage = () => {
     })
     return (
         <div>
-          <div className="overflow-x-auto my-16 rounded-xl bg-violet-400">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr className="text-lg">
-        <th>*</th>
-        <th>Class Name</th>
-        <th>Photo</th>
-        <th>Description</th>
-        <th>Trainer</th>
-      </tr>
-    </thead>
-    <tbody>
+          <div className="my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+ 
       {
-        classes.map((item, index) =>  <tr key={item._id}>
-            <th>{index+1}</th>
-            <td className="font-extrabold">{item.title}</td>
-            <td>
-                <img className="w-40 h-40 rounded-xl" src={item.image} alt="" />
-            </td>
-            <td className="w-80"><span className="font-extrabold">***</span>{item.description}</td>
-            <td className="flex gap-2">
-            <img src="https://i.ibb.co/VNrnzW3/brunette-woman.jpg" alt="" className="object-cover object-center w-16 h-16 rounded-full shadow-sm dark:bg-gray-500 dark:border-gray-300" />
-            <img src="https://source.unsplash.com/50x50/?portrait" alt="" className="object-cover object-center w-16 h-16 rounded-full shadow-sm dark:bg-gray-500 dark:border-gray-300" />
-            <img src="https://source.unsplash.com/50x50/?portrait" alt="" className="object-cover object-center w-16 h-16 rounded-full shadow-sm dark:bg-gray-500 dark:border-gray-300" />
-           
-            </td>
-          </tr>)
+        classes.map((item) => 
+          <div key={item._id} className="max-w-md p-8 sm:flex sm:space-x-6 bg-gray-900 rounded-xl dark:bg-gray-50 text-gray-100 dark:text-gray-800">
+        <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
+          <img src={item.image} alt="" className="object-cover object-center w-full h-full rounded-xl bg-gray-500 dark:bg-gray-500" />
+        </div>
+        <div className="flex flex-col space-y-4">
+          <div>
+            <h2 className="text-2xl font-extrabold mb-2">{item.class}</h2>
+            <p className="text-sm text-gray-400 dark:text-gray-600"><span className="font-bold mr-2 mt-2">Description:</span> {item.description}</p>
+            <h2 className="text-2xl font-semibold mt-2"> Trainer******</h2>
+            <p >---------------------------</p>
+          </div>
+          <div className="space-y-1">
+            <div className="grid grid-cols-3 items-center space-x-2">
+            <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+            <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+            <img alt="" src="https://source.unsplash.com/100x100/?portrait" className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
+            </div>
+          
+          </div>
+        </div>
+      </div>)
       }
      
     
-    </tbody>
-  </table>
+   
 </div>
         </div>
     );

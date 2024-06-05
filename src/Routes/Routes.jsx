@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import AllTrainerPage from "../pages/AllTrainerPage/AllTrainerPage";
 import AllClassesPage from "../pages/AllClassesPage/AllClassesPage";
 import Community from "../pages/Community/Community";
+import Details from "../pages/AllTrainerPage/Details";
 
 
 
@@ -43,6 +44,10 @@ import Community from "../pages/Community/Community";
             path: "/community",
             element: <Community></Community>,
           },
+          {
+            path: "/details/:id",
+            element: <Details></Details>
+          }
       ]
     },
   ]);

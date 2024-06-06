@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 // social auth provider
@@ -49,6 +50,17 @@ const FirebaseProvider = ({ children }) => {
    return signOut(auth);
   };
 
+  // save user
+  const saveUser = async user => {
+    const currentUser = {
+      email: user?.email,
+      role: 'member',
+      status: 'Verified',
+    }
+    const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/user`, currentUser)
+    return data
+  }
+
   // observer
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -56,6 +68,7 @@ const FirebaseProvider = ({ children }) => {
 
       if (user) {
         setUser(user);
+        saveUser(user);
       }
 
       setLoading(false);

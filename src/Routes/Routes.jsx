@@ -10,6 +10,11 @@ import AllTrainerPage from "../pages/AllTrainerPage/AllTrainerPage";
 import AllClassesPage from "../pages/AllClassesPage/AllClassesPage";
 import Community from "../pages/Community/Community";
 import Details from "../pages/AllTrainerPage/Details";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Statistics from "../pages/Dashboard/Common/Statistics";
+import ManageSlots from "../pages/Dashboard/Trainer/ManageSlots";
+import AddNewSlot from "../pages/Dashboard/Trainer/AddNewSlot";
+import AddNewForum from "../pages/Dashboard/Trainer/AddNewForum";
 
 
 
@@ -50,4 +55,28 @@ import Details from "../pages/AllTrainerPage/Details";
           }
       ]
     },
+
+    {
+      path: '/dashboard',
+      element: <DashboardLayout></DashboardLayout>,
+      children: [
+
+        {
+          index: true,
+          element: <Statistics></Statistics>
+        },
+        {
+          path: 'manageSlots',
+          element: <ManageSlots></ManageSlots>
+        },
+        {
+          path: 'addNewSlot',
+          element: <AddNewSlot></AddNewSlot>
+        },
+        {
+          path: 'addNewForum',
+          element: <AddNewForum></AddNewForum>
+        },
+      ], 
+    }
   ]);

@@ -15,6 +15,7 @@ import Statistics from "../pages/Dashboard/Common/Statistics";
 import ManageSlots from "../pages/Dashboard/Trainer/ManageSlots";
 import AddNewSlot from "../pages/Dashboard/Trainer/AddNewSlot";
 import AddNewForum from "../pages/Dashboard/Trainer/AddNewForum";
+import BecomeTrainer from "../pages/BecomeTrainer/BecomeTrainer";
 
 
 
@@ -52,6 +53,10 @@ import AddNewForum from "../pages/Dashboard/Trainer/AddNewForum";
           {
             path: "/details/:id",
             element: <Details></Details>
+          },
+          {
+            path: "/become-a-trainer",
+            element: <BecomeTrainer></BecomeTrainer>
           }
       ]
     },

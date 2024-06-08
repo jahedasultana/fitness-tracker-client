@@ -16,6 +16,14 @@ import ManageSlots from "../pages/Dashboard/Trainer/ManageSlots";
 import AddNewSlot from "../pages/Dashboard/Trainer/AddNewSlot";
 import AddNewForum from "../pages/Dashboard/Trainer/AddNewForum";
 import BecomeTrainer from "../pages/BecomeTrainer/BecomeTrainer";
+import AllSubscribers from "../pages/Dashboard/Admin/AllSubscribers";
+import AllTrainers from "../pages/Dashboard/Admin/AllTrainers";
+import AppliedTrainer from "../pages/Dashboard/Admin/AppliedTrainer";
+import Balance from "../pages/Dashboard/Admin/Balance";
+import AddNewClass from "../pages/Dashboard/Admin/AddNewClass";
+import ActivityLog from "../pages/Dashboard/Member/ActivityLog";
+import Profile from "../pages/Dashboard/Member/Profile";
+import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
 
 
 
@@ -81,6 +89,38 @@ import BecomeTrainer from "../pages/BecomeTrainer/BecomeTrainer";
         {
           path: 'addNewForum',
           element: <AddNewForum></AddNewForum>
+        },
+        {
+          path: 'allSubscribers',
+          element: <AllSubscribers></AllSubscribers>
+        },
+        {
+          path: 'allTrainers',
+          element: <AllTrainers></AllTrainers>
+        },
+        {
+          path: 'appliedTrainer',
+          element: <AppliedTrainer></AppliedTrainer>
+        },
+        {
+          path: 'balance',
+          element: <Balance></Balance>
+        },
+        {
+          path: 'addNewClass',
+          element: <AddNewClass></AddNewClass>
+        },
+        {
+          path: 'activityLog',
+          element: <ActivityLog></ActivityLog>
+        },
+        {
+          path: 'profile',
+          element: <Profile></Profile>
+        },
+        {
+          path: 'bookedTrainer',
+          element: <BookedTrainer></BookedTrainer>
         },
       ], 
     }

@@ -12,13 +12,6 @@ const MemberMenu = () => {
         icon={MdHomeWork}
       ></MenuItem>
 
-      {/* Profile Menu */}
-      <MenuItem
-        label="Profile"
-        address="profile"
-        icon={FcSettings}
-      ></MenuItem>
-
       {/* Add new Class */}
       <MenuItem
         label="Booked Trainer"

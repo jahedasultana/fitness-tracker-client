@@ -22,7 +22,7 @@ import AppliedTrainer from "../pages/Dashboard/Admin/AppliedTrainer";
 import Balance from "../pages/Dashboard/Admin/Balance";
 import AddNewClass from "../pages/Dashboard/Admin/AddNewClass";
 import ActivityLog from "../pages/Dashboard/Member/ActivityLog";
-import Profile from "../pages/Dashboard/Member/Profile";
+import Profile from "../pages/Dashboard/Common/Profile";
 import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
 
 
@@ -115,7 +115,7 @@ import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
           element: <ActivityLog></ActivityLog>
         },
         {
-          path: 'profile',
+          path: '/dashboard/profile',
           element: <Profile></Profile>
         },
         {

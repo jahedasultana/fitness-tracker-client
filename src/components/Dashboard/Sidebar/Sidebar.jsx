@@ -32,10 +32,10 @@ const Sidebar = () => {
             <Link to="/">
               <img
                 // className='hidden md:block'
-                src="https://i.ibb.co/4ZXzmq5/logo.png"
+                src="https://i.ibb.co/ZWcm0D2/logo.jpg"
                 alt="logo"
-                width="100"
-                height="100"
+                width="50"
+                height="50"
               />
             </Link>
           </div>
@@ -74,17 +74,18 @@ const Sidebar = () => {
             <nav>
               {/* Statistics */}
               <MenuItem
-              label='Statistics'
-              address='/dashboard'
-              icon={BsGraphUp}
+                label="Statistics"
+                address="/dashboard"
+                icon={BsGraphUp}
               ></MenuItem>
-             
+
               {/* Manage Slots*/}
 
-             {role === 'trainer' && <TrainerMenu></TrainerMenu>}
-             {role === 'admin' && <AdminMenu></AdminMenu>}
-             {role === 'member' && <MemberMenu></MemberMenu>}
+              {role === "trainer" && <TrainerMenu></TrainerMenu>}
+              {role === "admin" && <AdminMenu></AdminMenu>}
+              {role === "member" && <MemberMenu></MemberMenu>}
 
+            
             </nav>
           </div>
         </div>
@@ -93,11 +94,11 @@ const Sidebar = () => {
           <hr />
           {/* Profile Menu */}
           <MenuItem
-              label='Profile'
-              address='/dashboard/profile'
-              icon={FcSettings}
-              ></MenuItem>
-          
+            label="Profile"
+            address="/dashboard/profile"
+            icon={FcSettings}
+          ></MenuItem>
+
           <button
             onClick={logOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"

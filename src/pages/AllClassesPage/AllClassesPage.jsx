@@ -27,7 +27,7 @@ const AllClassesPage = () => {
         <div className="flex flex-col space-y-4">
           <div>
             <h2 className="text-2xl font-extrabold mb-2">{item.className}</h2>
-            <p className="text-sm text-gray-400 dark:text-gray-600"><span className="font-bold mr-2 mt-2">Details:</span> {item.details}</p>
+            <p className="text-sm text-gray-400 dark:text-gray-600"><span className="font-bold mr-2 mt-2">Description:</span> {item.description}</p>
             <h2 className="text-2xl font-semibold mt-2"> Trainer******</h2>
             <p >---------------------------</p>
           </div>

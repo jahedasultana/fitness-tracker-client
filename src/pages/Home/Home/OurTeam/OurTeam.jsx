@@ -13,7 +13,7 @@ const OurTeam = () => {
 	<div className="container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">
 	
 		<div className="flex flex-row flex-wrap-reverse justify-center">
-			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-12 rounded-2xl">
+			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-8 rounded-2xl">
 				<img alt="" className="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full bg-gray-500 dark:bg-gray-500 bg-gray-500 dark:bg-gray-500" src="https://i.ibb.co/kMBt8t5/team-two.jpg" />
 				<p className="text-2xl font-semibold leading-tight">David Leea</p>
                 <p>------------------------------</p>
@@ -22,7 +22,7 @@ const OurTeam = () => {
                 <p className="w-60 mt-2 text-left"><span className="font-bold mr-2">Expertise:</span> Yoga, Mindfulness, Holistic Wellness</p>
 				
 			</div>
-			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-12 rounded-2xl">
+			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-8 rounded-2xl">
 				<img alt="" className="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full bg-gray-500 dark:bg-gray-500 bg-gray-500 dark:bg-gray-500" src="https://i.ibb.co/kKnSMnD/team-three.jpg" />
 				<p className="text-2xl font-semibold leading-tight">Megan Brown</p>
                 <p>------------------------------</p>
@@ -31,7 +31,7 @@ const OurTeam = () => {
                 <p className="w-60 mt-2  text-left"> <span className="font-bold mr-2">Expertise:</span>Performance Enhancement, Endurance Training, Sports Science</p>
 				
 			</div>
-			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-12 rounded-2xl">
+			<div className="flex flex-col justify-center m-8 text-center bg-violet-300 p-8 rounded-2xl">
 				<img alt="" className="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full bg-gray-500 dark:bg-gray-500 bg-gray-500 dark:bg-gray-500" src="https://i.ibb.co/NVRwmKx/team-four.jpg" />
                
 				<p className="text-2xl font-semibold leading-tight">Alex Johnson</p>

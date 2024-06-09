@@ -1,185 +1,139 @@
-import { Typewriter } from 'react-simple-typewriter';
-import Swal from 'sweetalert2';
-import { Helmet } from 'react-helmet-async';
-import useAuth from '../../../hooks/useAuth';
+import { Helmet } from "react-helmet-async";
+import { TbFidgetSpinner } from "react-icons/tb";
+import { useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+
+import Swal from "sweetalert2";
+import { imageUpload } from "../../../components/imageUpload";
 
 const AddNewClass = () => {
-    const { user } = useAuth() || {};
+  const { user, loading } = useAuth() || {};
+  const axiosSecure = useAxiosSecure();
 
-    const handleAddClass = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const className = form.className.value;
-        const image = form.image.value;
-        const details = form.details.value;
-        const additionalInfo = form.additionalInfo.value;
-        const category = form.category.value; // Get the category value
-        const totalBookingNumber = parseInt(form.totalBookingNumber.value); // Parse totalBookingNumber as integer
-        
-        const newClass = {
-            className,
-            image,
-            details,
-            additionalInfo,
-            category, // Include category in the newClass object
-            totalBookingNumber // Include totalBookingNumber in the newClass object
-        };
-    
-        // Send data to the server
-        fetch('http://localhost:5000/classes', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newClass)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.insertedId) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Class added successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                });
-                form.reset(); // Reset the form after successful submission
-            }
-        });
+  const { mutateAsync } = useMutation({
+    mutationFn: async (classData) => {
+      const { data } = await axiosSecure.post("/classes", classData);
+      return data;
+    },
+    onSuccess: () => {
+      Swal.fire({
+        title: "Success!",
+        text: "Class added successfully",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+    },
+    onError: (error) => {
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to add class",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+      console.log(error);
+    },
+  });
+
+  const handleClassAdd = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const className = form.className.value;
+    const description = form.description.value;
+    const image = form.image.files[0];
+    const admin = {
+      name: user?.displayName,
+      email: user?.email,
+      image: user?.photoURL,
+    };
+    try {
+      const image_url = await imageUpload(image);
+      const classData = { className, description, image: image_url, admin };
+      console.table(classData);
+      await mutateAsync(classData);
+    } catch (err) {
+      console.log(err);
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to upload image",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
     }
+  };
 
-    return (
-        <div>
-            <Helmet>
-                <title>Classes Project | Add Class</title>
-            </Helmet>
-            <div className="bg-violet-500 text-lg font-bold p-16 my-16 mx-2 rounded-md">
-                <h2 className="text-4xl text-white font-lato text-center font-extrabold mb-6">
-                    <span style={{ color: '', fontWeight: 'bold' }}>
-                        <Typewriter
-                            words={['Add a Class']}
-                            loop={1000000}
-                            cursor
-                            cursorStyle='_'
-                            typeSpeed={70}
-                            deleteSpeed={50}
-                            delaySpeed={1000}
-                        />
-                    </span>
-                </h2>
+  return (
+    <div>
+      <Helmet>
+        <title>Admin | Add Class</title>
+      </Helmet>
+      <div className="text-lg bg-violet-900 font-bold p-4 md:p-8 lg:p-16 my-16 mx-2 rounded-md">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-white font-lato text-center font-extrabold mb-6">
+          Add Class
+        </h2>
 
-                <form onSubmit={handleAddClass} className="space-y-4">
-                    {/* Class name and Image */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white text-lg font-bold">Class Name</span>
-                            </label>
-                            <input
-                                required
-                                type="text"
-                                name="className"
-                                placeholder="Class Name"
-                                className="input input-bordered input-double-line"
-                            />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white text-lg font-bold">Class Image</span>
-                            </label>
-                            <input
-                                required
-                                type="text"
-                                name="image"
-                                placeholder="Class Image URL"
-                                className="input input-bordered input-double-line"
-                            />
-                        </div>
-                    </div>
-                    {/* Class Details */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white text-lg font-bold">Class Details</span>
-                        </label>
-                        <textarea
-                            required
-                            name="details"
-                            placeholder="Class Details"
-                            className="input input-bordered input-double-line"
-                        />
-                    </div>
-                    {/* Additional Info */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white text-lg font-bold">Additional Info</span>
-                        </label>
-                        <textarea
-                            name="additionalInfo"
-                            placeholder="Additional Info"
-                            className="input input-bordered input-double-line"
-                        />
-                    </div>
-                    {/* Category */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white text-lg font-bold">Category</span>
-                        </label>
-                        <select
-                            required
-                            name="category"
-                            className="select select-bordered input-double-line"
-                        >
-                            <option value="popular">Popular</option>
-                            <option value="trending">Trending</option>
-                            <option value="new">New</option>
-                        </select>
-                    </div>
-                    {/* Total Booking Number (default to 0) */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white text-lg font-bold">Total Booking Number</span>
-                        </label>
-                        <input
-                            type="number"
-                            name="totalBookingNumber"
-                            defaultValue="0"
-                            className="input input-bordered input-double-line"
-                        />
-                    </div>
-                    {/* User Info (optional) */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white text-lg font-bold">User Name</span>
-                            </label>
-                            <input
-                                readOnly
-                                type="text"
-                                name="displayName"
-                                defaultValue={user?.displayName}
-                                placeholder="User Name"
-                                className="input input-bordered input-double-line"
-                            />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white text-lg font-bold">User Email</span>
-                            </label>
-                            <input
-                                readOnly
-                                type="email"
-                                name="email"
-                                defaultValue={user?.email}
-                                placeholder="User Email"
-                                className="input input-bordered input-double-line"
-                            />
-                        </div>
-                    </div>
-
-                    <input type="submit" value="Add Class" className="btn btn-block" />
-                </form>
+        <form onSubmit={handleClassAdd} className="space-y-4">
+          {/* Class name and Image */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">
+                  Class Name
+                </span>
+              </label>
+              <input
+                required
+                type="text"
+                name="className"
+                placeholder="Class Name"
+                className="input input-bordered input-double-line p-3"
+              />
             </div>
-        </div>
-    );
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">
+                  Class Image
+                </span>
+              </label>
+              <input
+                required
+                type="file"
+                name="image"
+                className="input input-bordered input-double-line p-3"
+                accept="image/*"
+              />
+            </div>
+          </div>
+          {/* Class Details */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-white text-lg font-bold">
+                Class Description
+              </span>
+            </label>
+            <textarea
+              required
+              name="description"
+              placeholder="Class Description"
+              className="input input-bordered input-double-line p-3"
+            />
+          </div>
+          {/* Submit Button */}
+          <button
+            disabled={loading}
+            type="submit"
+            className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500"
+          >
+            {loading ? (
+              <TbFidgetSpinner className="animate-spin m-auto" />
+            ) : (
+              "Save Class"
+            )}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default AddNewClass;

@@ -32,7 +32,7 @@ const Profile = () => {
       <Helmet>
         <title>Profile</title>
       </Helmet>
-      <div className='bg-white shadow-lg rounded-2xl w-11/12 md:w-4/5 lg:w-3/5'>
+      <div className='bg-white shadow-lg rounded-2xl w-11/12 md:w-3/5 lg:w-4/5'>
         <img
           alt='profile cover'
           src='https://i.ibb.co/BC4fFcf/gradient-fitness-gym-twitch-banner-23-2150610034.jpg'
@@ -59,7 +59,7 @@ const Profile = () => {
                 <span className='text-gray-500'>Name</span>
                 <span className='font-bold text-black'>{user?.displayName}</span>
               </div>
-              <div className='w-full md:w-1/3 flex flex-col'>
+              <div className='w-full md:w-1/3  flex flex-col'>
                 <span className='text-gray-500'>Email</span>
                 <span className='font-bold text-black'>{user?.email}</span>
               </div>

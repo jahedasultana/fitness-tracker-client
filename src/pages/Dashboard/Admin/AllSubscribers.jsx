@@ -19,21 +19,21 @@ const AllSubscribers = () => {
       }
     return (
         <div className="mb-20">
-            <SectionTitle heading="Newsletter Subscribers" />
+            <SectionTitle heading="Subscribers" />
             <div className="overflow-x-auto rounded-xl">
                 <table className="min-w-full bg-white dark:bg-gray-800">
-                    <thead className="bg-violet-500 font-bold text-white">
+                    <thead className="bg-violet-900 text-lg font-bold text-white">
                         <tr>
-                            <th className="w-1/3 px-4 py-2">Name</th>
-                            <th className="w-1/3 px-4 py-2">Email</th>
+                            <th className="w-1/3 px-4 py-4">Name</th>
+                            <th className="w-1/3 px-4 py-4">Email</th>
                             {/* <th className="w-1/3 px-4 py-2">Subscription Date</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {subscribers.map((subscriber, index) => (
-                            <tr key={index} className="bg-violet-500 font-bold text-white text-center">
-                                <td className="border px-4 py-2">{subscriber?.name}</td>
-                                <td className="border px-4 py-2">{subscriber?.email}</td>
+                            <tr key={index} className="bg-violet-500 font-bold text-white">
+                                <td className="border px-4 py-4">{subscriber?.name}</td>
+                                <td className="border px-4 py-4">{subscriber?.email}</td>
                                
                             </tr>
                         ))}

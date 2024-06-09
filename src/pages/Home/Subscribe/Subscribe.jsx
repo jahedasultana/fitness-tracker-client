@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import { useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Swal from 'sweetalert2';
 
@@ -34,14 +35,7 @@ const Subscribe = () => {
                 setEmail('');
             }
         })
-        .catch(error => {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Failed to subscribe',
-                icon: 'error',
-                confirmButtonText: 'Try Again'
-            });
-        });
+       
     };
 
     return (

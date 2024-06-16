@@ -1,7 +1,8 @@
-import { BsFillHouseAddFill } from "react-icons/bs";
+
+import { FaSubscript } from "react-icons/fa";
 import MenuItem from "./MenuItem";
 import { MdHomeWork } from "react-icons/md";
-
+import { IoIosAddCircle } from "react-icons/io";
 
 const AdminMenu = () => {
     return (
@@ -9,7 +10,7 @@ const AdminMenu = () => {
                  <MenuItem
               label='All subscribers'
               address='allSubscribers'
-              icon={BsFillHouseAddFill}
+              icon={FaSubscript}
               ></MenuItem>
              
               {/* All Trainers*/}
@@ -35,7 +36,7 @@ const AdminMenu = () => {
               <MenuItem
               label='Add new Class'
               address='addNewClass'
-              icon={MdHomeWork}
+              icon={IoIosAddCircle}
               ></MenuItem>  
         </div>
     );

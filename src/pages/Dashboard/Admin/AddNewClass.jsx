@@ -13,7 +13,7 @@ const AddNewClass = () => {
 
   const { mutateAsync } = useMutation({
     mutationFn: async (classData) => {
-      const { data } = await axiosSecure.post("/classes", classData);
+      const { data } = await axiosSecure.post(`/class`, classData);
       return data;
     },
     onSuccess: () => {

@@ -2,17 +2,15 @@ import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
-import { BsFillHouseAddFill, BsGraphUp } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { BsGraphUp } from "react-icons/bs";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
-import { MdHomeWork } from "react-icons/md";
 import useRole from "../../../hooks/useRole";
 import MenuItem from "./Menu/MenuItem";
 import TrainerMenu from "./Menu/TrainerMenu";
 import AdminMenu from "./Menu/AdminMenu";
 import MemberMenu from "./Menu/MemberMenu";
-
+import { IoChevronBackCircleSharp } from "react-icons/io5";
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
@@ -59,9 +57,12 @@ const Sidebar = () => {
           <div>
             <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-amber-600 mx-auto">
               <Link to="/">
-                <h2 className="text-2xl btn bg-gray-300 border-none font-bold text-gray-600">
-                  Home Page
+               <div className="flex items-center justify-center">
+               <IoChevronBackCircleSharp className="text-2xl"></IoChevronBackCircleSharp>
+                <h2 className="text-xl border-none font-bold text-gray-600">
+                  Back to home
                 </h2>
+               </div>
               </Link>
             </div>
           </div>

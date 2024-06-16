@@ -1,76 +1,135 @@
 import { useQuery } from "@tanstack/react-query";
+// import useAuth from "../../hook/useAuth";
+import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useParams, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 const Details = () => {
+  // const { user } = useAuth();
   const { id } = useParams();
-  const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
 
-  const { data: trainer = {} } = useQuery({
+  const { data: trainer = [], isLoading } = useQuery({
     queryKey: ["trainer", id],
     queryFn: async () => {
       const { data } = await axiosPublic.get(`/trainer/${id}`);
       return data;
     },
   });
+  // console.log(trainer)
 
-  const handleBecomeTrainerClick = () => {
-    navigate('/become-a-trainer');
-  };
+  if (isLoading)
+    return (
+      <div className="w-16 h-16 border-4 mx-auto  bg-yellow-500 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
+    );
 
   return (
-    <div>
-      <Helmet>
-        <title>Fitness-Tracker | Details</title>
-      </Helmet>
-      <div className="flex my-16 gap-12">
-        <div className="w-1/2">
-          <div className="p-6 sm:p-12 shadow-lg border-2 rounded-lg bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
-            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-              <img
-                src={trainer.image}
-                alt=""
-                className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 dark:bg-gray-500 border-gray-700 dark:border-gray-300"
-              />
-              <div className="flex flex-col">
-                <h4 className="text-xl font-extrabold mb-2 text-center md:text-left">
-                  {trainer.name}
-                </h4>
-                <h4><span className="font-extrabold text-violet-500 text-lg mr-2">
-                  Years of Experience: </span>{trainer.years_of_experience}</h4>
-                <hr />
-                <p className="text-gray-400 dark:text-gray-600">
-                  {trainer.background}
-                </p>
+    <header className="bg-white dark:bg-gray-900">
+      <div className="container px-6 py-16 mx-auto">
+        <div className="items-center lg:flex">
+          {/* trainer information section */}
+          <div className="w-full lg:w-1/2">
+            <div className="lg:max-w-lg">
+              <div className="max-w-2xl overflow-hidden bg-white dark:bg-gray-800">
+                <img
+                  className="object-center w-full h-64 px-32"
+                  src={trainer.image}
+                  alt="Article"
+                />
+
+                <div className="p-6">
+                  <div>
+                    <span className="text-[14px] font-medium text-blue-600 uppercase dark:text-blue-400">
+                      Trainer: {trainer.name}
+                    </span>
+                    <a
+                      href="#"
+                      className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+                      role="link"
+                    >
+                      Details: {trainer.specialist}
+                    </a>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                      {trainer.bio}
+                    </p>
+                    <span className="text-[14px] font-medium text-black uppercase dark:text-blue-400">
+                      Experience: {trainer.experience}
+                    </span>
+                    <br />
+                    <span className="text-[14px] font-medium text-black uppercase dark:text-blue-400">
+                      {" "}
+                      Specialist: {trainer.otherInfo}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* Available slots */}
-        <div className="">
-          <h2 className="text-2xl font-bold">Available slots</h2>
-          <p>----------------------------------------------------</p>
-        </div>
-      </div>
 
-      {/* Be A Trainer Section */}
-      <div className="flex justify-center my-16">
-        <div className="text-center p-8 border-2 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-lg">
-          <h2 className="text-2xl text-white font-bold mb-4">Be A Trainer</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Join our community of expert trainers and make a difference. Share your knowledge, inspire others, and grow professionally.
-          </p>
-          <button
-            onClick={handleBecomeTrainerClick}
-            className="px-6 py-3 bg-violet-500 text-white font-semibold rounded-lg hover:bg-violet-600"
-          >
-            Become a Trainer
-          </button>
+          <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+            <section className="p-6 dark:bg-gray-100 dark:text-gray-800">
+              <div className="container mx-auto">
+                {/* Become a trainer section */}
+                <Link
+                  to="/become-a-trainer"
+                  className="btn-success btn w-full mb-5"
+                >
+                  Become a Trainer
+                </Link>
+
+                {/* available slots section */}
+                <span className="block mb-2 text-xs font-medium tracking-widest text-center uppercase dark:text-violet-600">
+                  For Booking
+                </span>
+                <h2 className="text-5xl font-bold text-center dark:text-gray-900">
+                  Available Slots
+                </h2>
+                <div className="grid gap-6 my-16 lg:grid-cols-3">
+                   {/* <Link
+                    to={"/bookingPage"}
+                    state={{
+                      trainer: trainer,
+                      selectedSlot: trainer.slots[0],
+                    }}
+                    className="flex flex-col bg-black text-white p-8 space-y-4 rounded-md dark:bg-gray-50"
+                  >
+                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
+                      1
+                    </div>
+                    <p className="text-2xl font-semibold">{trainer.slots[0]}</p>
+                  </Link> */}
+                  {/* <Link
+                    state={{
+                      trainer: trainer,
+                      selectedSlot: trainer.slots[0],
+                    }}
+                    to={"/bookingPage"}
+                    className="flex flex-col p-8 space-y-4 bg-black text-white rounded-md dark:bg-gray-50"
+                  >
+                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
+                      2
+                    </div>
+                    <p className="text-2xl font-semibold">{trainer.slots[1]}</p>
+                  </Link>  */}
+                   {/* <Link
+                    state={{
+                      trainer: trainer,
+                      selectedSlot: trainer.slots[0],
+                    }}
+                    to={"/bookingPage"}
+                    className="flex flex-col p-8 space-y-4 bg-black text-white rounded-md dark:bg-gray-50"
+                  >
+                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
+                      3
+                    </div>
+                    <p className="text-2xl font-semibold">{trainer.slots[2]}</p>
+                  </Link>   */}
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

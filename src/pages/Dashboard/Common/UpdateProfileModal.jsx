@@ -1,60 +1,65 @@
-import { useState } from "react";
+import { Button, Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
+import { useState } from 'react'
+import useAuth from '../../../hooks/useAuth';
 
-const UpdateProfileModal = ({ show, onClose, user, onSave }) => {
-  const [name, setName] = useState(user.displayName || '');
-  const [email, setEmail] = useState(user.email || '');
 
-  if (!show) {
-    return null;
-  }
+const UpdateProfileModal = () => {
+    let [isOpen, setIsOpen] = useState(false)
+    const { user } = useAuth();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSave({ displayName: name });
-  };
-
-  return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-700 bg-opacity-50">
-      <div className="bg-white rounded-lg p-8 w-11/12 md:w-3/5 lg:w-2/5">
-        <h2 className="text-xl font-bold mb-4">Update Profile</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-            <input
-              type="email"
-              value={email}
-              readOnly
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500 bg-gray-200 cursor-not-allowed"
-            />
-          </div>
-          <div className="flex justify-end space-x-4">
-            <button
-              type="button"
-              onClick={onClose}
-              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400"
+    function open() {
+        setIsOpen(true)
+    }
+    function close() {
+        setIsOpen(false)
+    }
+    return (
+        <>
+            <Button
+                onClick={open}
+                className="rounded-md py-2 px-4 text-sm font-medium text-white focus:outline-none  data-[focus]:outline-1 data-[focus]:outline-white bg-violet-500 cursor-pointer hover:bg-[#8140af] block mb-1"
             >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-            >
-              Update
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+                Update Profile
+            </Button>
+
+            <Transition appear show={isOpen}>
+                <Dialog as="div" className="relative z-10 focus:outline-none" onClose={close}>
+                    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div className="flex min-h-full items-center justify-center p-4">
+                            <TransitionChild
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 transform-[scale(95%)]"
+                                enterTo="opacity-100 transform-[scale(100%)]"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 transform-[scale(100%)]"
+                                leaveTo="opacity-0 transform-[scale(95%)]"
+                            >
+                                <DialogPanel className="w-full max-w-md rounded-xl bg-violet-500 p-6 backdrop-blur-2xl">
+                                    <DialogTitle as="h3" className=" font-medium text-black w-full">
+                                        <input type="text" className='w-full rounded-md mb-2' defaultValue={user?.displayName} />
+                                    </DialogTitle>
+                                    <input type="text" className='w-full rounded-md' defaultValue={user?.email} />
+                                    <div className="mt-4 flex gap-4">
+                                        <Button
+                                            className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white" 
+                                        >
+                                            Updated
+                                        </Button>
+                                        <Button
+                                            className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
+                                            onClick={close}
+                                        >
+                                            Cancel
+                                        </Button>
+                                    </div>
+                                </DialogPanel>
+                            </TransitionChild>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition>
+        </>
+    );
 };
 
 export default UpdateProfileModal;

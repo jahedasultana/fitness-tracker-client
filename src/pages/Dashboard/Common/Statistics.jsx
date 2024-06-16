@@ -1,8 +1,9 @@
 
 const Statistics = () => {
     return (
-        <div>
-            <h2>Welcome to dashboard: statistics page</h2>
+        <div className="text-center mt-52">
+            <h2 className="text-5xl font-extrabold text-violet-500">Welcome to Dashboard</h2>
+            <p className="font-extrabold mt-2">---------------------------------------------</p>
         </div>
     );
 };

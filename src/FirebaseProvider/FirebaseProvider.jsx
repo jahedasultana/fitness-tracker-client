@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
@@ -21,8 +22,14 @@ const githubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isUpdated, setIsUpdated] = useState(true);
   const [loading, setLoading] = useState(true);
   const axiosPublic = useAxiosPublic();
+
+  const refetchUser = () =>{
+    setIsUpdated(!isUpdated);
+    
+  }
   console.log(user);
   // create user
   const createUser = (email, password) => {
@@ -53,10 +60,19 @@ const FirebaseProvider = ({ children }) => {
    return signOut(auth);
   };
 
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo
+    });
+};
+
   // save user
   const saveUser = async user => {
+    console.log(user);
     const currentUser = {
       email: user?.email,
+      name: user?.displayName,
       role: 'member',
       status: 'Verified',
     }
@@ -91,7 +107,7 @@ const FirebaseProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, [axiosPublic]);
+  }, [axiosPublic, isUpdated]);
 
   const allValues = {
     createUser,
@@ -101,6 +117,9 @@ const FirebaseProvider = ({ children }) => {
     logout,
     user,
     setUser,
+    saveUser,
+    refetchUser,
+    updateUserProfile,
     loading,
   };
   return (

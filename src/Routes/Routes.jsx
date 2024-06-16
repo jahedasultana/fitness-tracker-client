@@ -24,6 +24,7 @@ import AddNewClass from "../pages/Dashboard/Admin/AddNewClass";
 import ActivityLog from "../pages/Dashboard/Member/ActivityLog";
 import Profile from "../pages/Dashboard/Common/Profile";
 import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 
 
@@ -59,7 +60,7 @@ import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
             element: <Community></Community>,
           },
           {
-            path: "/details/:id",
+            path: "/trainer/:id",
             element: <Details></Details>
           },
           {
@@ -71,7 +72,7 @@ import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
 
     {
       path: '/dashboard',
-      element: <DashboardLayout></DashboardLayout>,
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       children: [
 
         {

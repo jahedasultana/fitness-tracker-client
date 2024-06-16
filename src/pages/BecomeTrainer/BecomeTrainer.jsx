@@ -1,9 +1,9 @@
 import Select from "react-select";
-import { useState } from "react";
+
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Typewriter } from "react-simple-typewriter";
-import Swal from "sweetalert2";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const BecomeTrainer = () => {
   const { user } = useAuth();
@@ -43,28 +43,19 @@ const BecomeTrainer = () => {
         status: "requested",
         info,
       };
-      const { data } = await axiosSecure.post(
-        "/trainerApplications",
-        currentUser
-      );
+      const { data } = await axiosSecure.post("/slots", {
+        ...currentUser,
+        ...info,
+      });
       console.log(data);
       if (data.insertedCount > 0) {
-        Swal.fire({
-            title: 'Success!',
-            text: 'Your apply successfully received',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          })
+        toast.success("Your apply successfully received");
       } else {
-        Swal.fire({
-            title: 'Success!',
-            text: 'wait for admin approval',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          })
+        toast.success("wait for admin approval");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.message);
     }
   };
   const options = [
@@ -93,19 +84,9 @@ const BecomeTrainer = () => {
 
   return (
     <div>
-      <section className="container mx-auto my-16 p-8 bg-violet-400 shadow-xl border rounded-lg">
-        <h2 className="text-4xl font-lato text-center font-extrabold mb-6">
-          <span style={{ color: "", fontWeight: "bold" }}>
-            <Typewriter
-              words={["Become a Trainer"]}
-              loop={1000000}
-              cursor
-              cursorStyle="_"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </span>
+      <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+          Become A Trainer Form
         </h2>
 
         <form onSubmit={handleTrainer}>
@@ -119,8 +100,9 @@ const BecomeTrainer = () => {
                 defaultValue={user?.displayName}
                 name="name"
                 type="text"
+                disabled
                 placeholder="Full Name"
-                className="input input-bordered w-full"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -129,22 +111,21 @@ const BecomeTrainer = () => {
               </label>
               <input
                 id="emailAddress"
+                disabled
                 defaultValue={user?.email}
                 name="email"
                 type="email"
-                readOnly
-                placeholder="Your Email"
-                className="input input-bordered w-full"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
             <div>
-              <label className="text-gray-700 dark:text-gray-200 block">Age</label>
+              <label className="text-gray-700 dark:text-gray-200">Age</label>
               <input
                 id="age"
                 name="age"
                 type="age"
                 placeholder="Your age"
-                className="input input-bordered w-full"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -154,9 +135,11 @@ const BecomeTrainer = () => {
               <input
                 id="photo"
                 name="photo"
+                disabled
                 type="text"
                 placeholder="Photo URL"
-                className="input input-bordered w-full"
+                defaultValue={user?.photoURL}
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -203,23 +186,23 @@ const BecomeTrainer = () => {
                 id="experience"
                 name="experience"
                 type="text"
-                className="input input-bordered w-full"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
             <div>
-              <label className="text-black dark:text-gray-200">Status</label>
+              <label className="text-gray-700 dark:text-gray-200">Status</label>
               <input
                 id="status"
                 name="status"
                 type="text"
-                className="input input-bordered w-full"
+                className="block w-full px-4 py-2 mt-2 text-orange-500 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                 defaultValue="pending"
               />
             </div>
           </div>
 
           <div className="flex justify-end mt-6">
-            <button className="px-8 py-2.5 w-full leading-5 text-white transition-colors duration-300 transform  rounded-md hover:bg-gray-600 bg-violet-800 focus:outline-none focus:bg-gray-600">
+            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Apply
             </button>
           </div>

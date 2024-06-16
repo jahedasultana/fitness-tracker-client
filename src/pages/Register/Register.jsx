@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
-  const { createUser, user, setUser } = useAuth();
+  const { createUser, user, setUser, refetchUser, saveUser } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -47,8 +47,11 @@ const Register = () => {
             displayName: fullName,
             photoURL: photoURL
           };
+
+          saveUser({displayName: fullName, email: email})
           updateProfile(result.user, profileUpdates)
           .then(() => {
+            refetchUser()
             console.log("Profile updated successfully");
             setUser({...user, 
               displayName: fullName,

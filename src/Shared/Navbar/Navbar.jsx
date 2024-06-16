@@ -41,26 +41,13 @@ const Navbar = () => {
       <li className="font-semibold">
         <NavLink to="/community">Community</NavLink>
       </li>
-      <li className="font-semibold">
+      
+       {user && (
+        <li className="font-semibold">
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
-      {/* {user && (
-        <li className="font-semibold">
-          <NavLink to="/addFood">Add a Food</NavLink>
-        </li>
       )}
 
-      {user && (
-        <li className="font-semibold">
-          <NavLink to="/manageMyFoods"> Manage My Foods</NavLink>
-        </li>
-      )}
-
-      {user && (
-        <li className="font-semibold">
-          <NavLink to="/myFoodRequest">My Food Request</NavLink>
-        </li>
-      )} */}
     </>
   );
   return (

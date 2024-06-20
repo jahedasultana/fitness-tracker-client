@@ -1,7 +1,7 @@
 
 import { FaSubscript } from "react-icons/fa";
 import MenuItem from "./MenuItem";
-import { MdHomeWork } from "react-icons/md";
+import { MdHomeWork, MdOutlineManageHistory } from "react-icons/md";
 import { IoIosAddCircle } from "react-icons/io";
 
 const AdminMenu = () => {
@@ -37,7 +37,13 @@ const AdminMenu = () => {
               label='Add new Class'
               address='addNewClass'
               icon={IoIosAddCircle}
-              ></MenuItem>  
+              ></MenuItem>
+               {/* Add new Forum */}
+               <MenuItem
+              label='Add new Forum'
+              address='addForum'
+              icon={MdOutlineManageHistory}
+              ></MenuItem>   
         </div>
     );
 };

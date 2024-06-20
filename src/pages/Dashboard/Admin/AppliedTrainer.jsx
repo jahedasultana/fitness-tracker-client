@@ -10,7 +10,7 @@ const AppliedTrainer = () => {
   const axios = useAxiosSecure();
 
   let fetchTrainer = () => {
-    fetch("http://localhost:5000/slots")
+    fetch("http://localhost:5000/slot-slot")
       .then((res) => res.json())
       .then((data) => setTrainers(data))
       .catch((error) => console.error("Error fetching trainers:", error));
@@ -33,6 +33,7 @@ const AppliedTrainer = () => {
 
   useEffect(() => {
     fetchTrainer();
+ 
   }, []);
 
   if (loading) {

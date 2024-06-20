@@ -9,9 +9,9 @@ const ClassesSection = () => {
     const axiosPublic = useAxiosPublic();
 
     const {data: classes =[] } = useQuery({
-        queryKey: ['classes'],
+        queryKey: ['class'],
         queryFn: async () =>{
-            const {data} = await axiosPublic.get('/classes')
+            const {data} = await axiosPublic.get('/class')
             return data;
         }
 

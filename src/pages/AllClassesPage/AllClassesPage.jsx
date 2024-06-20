@@ -1,6 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-
-
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ClassCard from "./ClassCard";
 
@@ -8,11 +6,9 @@ const AllClassesPage = () => {
     const axiosPublic = useAxiosPublic();
 
     const { data: allClass = [], isLoading } = useQuery({
-        queryKey: ['classes'],
+        queryKey: ['class'],
         queryFn: async () => {
-            const { data } = await axiosPublic.get('/classes')
-            // const popularDat = data.category === 'popular'
-            // console.log(data)
+            const { data } = await axiosPublic.get('/class')
             return data
         }
 

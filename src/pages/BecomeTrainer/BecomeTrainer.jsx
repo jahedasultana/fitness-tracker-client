@@ -1,5 +1,4 @@
 import Select from "react-select";
-
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useState } from "react";
@@ -58,6 +57,7 @@ const BecomeTrainer = () => {
       toast.error(error.message);
     }
   };
+
   const options = [
     { value: "Saturday", label: "Saturday" },
     { value: "Sunday", label: "Sunday" },
@@ -67,6 +67,7 @@ const BecomeTrainer = () => {
     { value: "Thursday", label: "Thursday" },
     { value: "Friday", label: "Friday" },
   ];
+
   const skills = [
     { value: "Yoga", label: "Yoga" },
     { value: "Zumba Dance", label: "Zumba Dance" },
@@ -76,10 +77,12 @@ const BecomeTrainer = () => {
     { value: "Weight Lifting", label: "Weight Lifting" },
     { value: "Classic Yoga", label: "Classic Yoga" },
   ];
+
   const times = [
-    { value: "Morning- 06am to 08am", label: "Morning- 06am to 08am" },
-    { value: "Evening- 16pm to 18pm", label: "Evening- 16pm to 18pm" },
-    { value: "Night- 21pm to 23pm", label: "Night- 21pm to 23pm" },
+    { value: 1, label: "1h" },
+    { value: 2, label: "2h" },
+    { value: 3, label: "3h" },
+    { value: 4, label: "4h" },
   ];
 
   return (
@@ -123,7 +126,7 @@ const BecomeTrainer = () => {
               <input
                 id="age"
                 name="age"
-                type="age"
+                type="number"
                 placeholder="Your age"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
@@ -149,7 +152,7 @@ const BecomeTrainer = () => {
                 name="Skill"
                 options={skills}
                 labelField="label"
-                valueField="label"
+                valueField="value"
                 isMulti
                 onChange={setSelectedSkills}
               />
@@ -161,7 +164,7 @@ const BecomeTrainer = () => {
                 name="day"
                 options={options}
                 labelField="label"
-                valueField="label"
+                valueField="value"
                 isMulti
                 onChange={setSelectedDays}
               />
@@ -173,7 +176,7 @@ const BecomeTrainer = () => {
                 name="time"
                 options={times}
                 labelField="label"
-                valueField="label"
+                valueField="value"
                 isMulti
                 onChange={setSelectedTimes}
               />

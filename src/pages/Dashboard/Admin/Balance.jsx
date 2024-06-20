@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import PieChart from "./PieChart";
+// import PieChart from "./PieChart";
 
 
 const Balance = () => {
@@ -78,12 +78,12 @@ const Balance = () => {
                     </tfoot>
                 </table>
 
-                <PieChart
+                {/* <PieChart
                     paiData={{
                         total_subscriber: subscribers.length,
                         paid_members: trainers.length
                     }}
-                />
+                /> */}
             </div>
         </div>
     );

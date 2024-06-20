@@ -1,15 +1,15 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { imageUpload } from "../../../components/imageUpload";
 import { Helmet } from "react-helmet-async";
-import { TbFidgetSpinner } from "react-icons/tb";
 
 
-const AddNewForum = () => {
+const AddForum = () => {
   const { user, loading } = useAuth() || {};
   const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
 
   const { mutateAsync } = useMutation({
     mutationFn: async (ForumData) => {
@@ -17,9 +17,10 @@ const AddNewForum = () => {
       return data;
     },
     onSuccess: () => {
+      queryClient.invalidateQueries(['forums']); // Ensure the forum data is refetched after a new post
       Swal.fire({
         title: "Success!",
-        text: "Class added successfully",
+        text: "Post added successfully",
         icon: "success",
         confirmButtonText: "Cool",
       });
@@ -27,7 +28,7 @@ const AddNewForum = () => {
     onError: (error) => {
       Swal.fire({
         title: "Error!",
-        text: "Failed to add class",
+        text: error.response?.data?.message || "Failed to add post",
         icon: "error",
         confirmButtonText: "Try Again",
       });
@@ -41,15 +42,14 @@ const AddNewForum = () => {
     const title = form.title.value;
     const description = form.description.value;
     const image = form.image.files[0];
-  
-    const trainer = {
+    const admin = {
       name: user?.displayName,
       email: user?.email,
       image: user?.photoURL,
     };
     try {
       const image_url = await imageUpload(image);
-      const ForumData = { title, description, image: image_url, trainer };
+      const ForumData = { title, description, image: image_url, admin };
       console.table(ForumData);
       await mutateAsync(ForumData);
     } catch (err) {
@@ -66,20 +66,20 @@ const AddNewForum = () => {
   return (
     <div>
       <Helmet>
-        <title>Trainer | Add Class</title>
+        <title>Admin | Add Post</title>
       </Helmet>
       <div className="text-lg bg-violet-900 font-bold p-4 md:p-8 lg:p-16 my-16 mx-2 rounded-md">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-white font-lato text-center font-extrabold mb-6">
-          Add Class
+          Add Post
         </h2>
 
         <form onSubmit={handleClassAdd} className="space-y-4">
-          {/* Class name and Image */}
+          {/* Post Title and Image */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white text-lg font-bold">
-                Post Title
+                  Post Title
                 </span>
               </label>
               <input
@@ -93,7 +93,7 @@ const AddNewForum = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white text-lg font-bold">
-                 Image
+                  Image
                 </span>
               </label>
               <input
@@ -105,11 +105,11 @@ const AddNewForum = () => {
               />
             </div>
           </div>
-          {/* Class Details */}
+          {/* Post Details */}
           <div className="form-control">
             <label className="label">
               <span className="label-text text-white text-lg font-bold">
-          Post Description
+                Post Description
               </span>
             </label>
             <textarea
@@ -137,4 +137,4 @@ const AddNewForum = () => {
   );
 };
 
-export default AddNewForum;
+export default AddForum;

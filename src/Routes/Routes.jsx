@@ -8,7 +8,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import AllTrainerPage from "../pages/AllTrainerPage/AllTrainerPage";
 import AllClassesPage from "../pages/AllClassesPage/AllClassesPage";
-import Community from "../pages/Community/Community";
+
 import Details from "../pages/AllTrainerPage/Details";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Statistics from "../pages/Dashboard/Common/Statistics";
@@ -25,6 +25,12 @@ import ActivityLog from "../pages/Dashboard/Member/ActivityLog";
 import Profile from "../pages/Dashboard/Common/Profile";
 import BookedTrainer from "../pages/Dashboard/Member/BookedTrainer";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import TrainerRoute from "./TrainerRoutes";
+import AdminRoute from "./AdminRoute";
+import AddForum from "../pages/Dashboard/Admin/AddForum";
+import ForumPage from "../pages/ForumPage/ForumPage";
+import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
+
 
 
 
@@ -57,15 +63,19 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
           },
           {
             path: "/community",
-            element: <Community></Community>,
+            element: <ForumPage></ForumPage>,
           },
           {
-            path: "/trainer/:id",
+            path: "/slot/:id",
             element: <Details></Details>
           },
           {
             path: "/become-a-trainer",
-            element: <BecomeTrainer></BecomeTrainer>
+            element: <PrivateRoute><BecomeTrainer></BecomeTrainer></PrivateRoute>
+          },
+          {
+            path: "/bookingPage",
+            element: <PrivateRoute><TrainerBooked></TrainerBooked></PrivateRoute>
           }
       ]
     },
@@ -77,51 +87,60 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
         {
           index: true,
-          element: <Statistics></Statistics>
+          element: <PrivateRoute><Statistics></Statistics></PrivateRoute>
         },
+
+        // Trainer route
         {
           path: 'manageSlots',
-          element: <ManageSlots></ManageSlots>
+          element: <PrivateRoute><TrainerRoute><ManageSlots></ManageSlots></TrainerRoute></PrivateRoute>
         },
         {
           path: 'addNewSlot',
-          element: <AddNewSlot></AddNewSlot>
+          element: <PrivateRoute><TrainerRoute><AddNewSlot></AddNewSlot></TrainerRoute></PrivateRoute>
         },
         {
           path: 'addNewForum',
-          element: <AddNewForum></AddNewForum>
+          element: <PrivateRoute><TrainerRoute><AddNewForum></AddNewForum></TrainerRoute></PrivateRoute>
         },
+        // admin route
         {
           path: 'allSubscribers',
-          element: <AllSubscribers></AllSubscribers>
+          element: <PrivateRoute><AdminRoute><AllSubscribers></AllSubscribers></AdminRoute></PrivateRoute>
         },
         {
           path: 'allTrainers',
-          element: <AllTrainers></AllTrainers>
+          element: <PrivateRoute><AdminRoute><AllTrainers></AllTrainers></AdminRoute></PrivateRoute>
         },
         {
           path: 'appliedTrainer',
-          element: <AppliedTrainer></AppliedTrainer>
+          element: <PrivateRoute><AdminRoute><AppliedTrainer></AppliedTrainer></AdminRoute></PrivateRoute>
         },
         {
           path: 'balance',
-          element: <Balance></Balance>
+          element: <PrivateRoute><AdminRoute><Balance></Balance></AdminRoute></PrivateRoute>
         },
         {
           path: 'addNewClass',
-          element: <AddNewClass></AddNewClass>
+          element: <PrivateRoute><AdminRoute><AddNewClass></AddNewClass></AdminRoute></PrivateRoute>
         },
         {
+          path: 'addForum',
+          element: <PrivateRoute><AdminRoute><AddForum></AddForum></AdminRoute></PrivateRoute>
+        },
+
+        // member route
+        {
           path: 'activityLog',
-          element: <ActivityLog></ActivityLog>
+          element: <PrivateRoute><ActivityLog></ActivityLog></PrivateRoute>
         },
         {
           path: '/dashboard/profile',
-          element: <Profile></Profile>
+          element: <PrivateRoute><Profile></Profile></PrivateRoute>
         },
         {
           path: 'bookedTrainer',
-          element: <BookedTrainer></BookedTrainer>
+          element: <PrivateRoute><BookedTrainer></BookedTrainer></PrivateRoute>
         },
       ], 
     }

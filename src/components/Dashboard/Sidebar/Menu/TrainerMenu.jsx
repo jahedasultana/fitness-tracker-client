@@ -19,7 +19,6 @@ const TrainerMenu = () => {
               address='addNewSlot'
               icon={MdHomeWork}
               ></MenuItem>
-
               {/* Add new Forum */}
               <MenuItem
               label='Add new Forum'

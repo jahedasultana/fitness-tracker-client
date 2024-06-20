@@ -159,7 +159,7 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button
                   type="submit"
-                  className="btn bg-gradient-to-r from-purple-700 to-teal-600 text-white"
+                  className="btn bg-gradient-to-r bg-violet-500 text-white"
                 >
                   Register
                 </button>

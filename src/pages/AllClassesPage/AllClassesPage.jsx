@@ -1,27 +1,48 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ClassCard from "./ClassCard";
+import { useState } from "react";
+import { Pagination } from "flowbite-react";
+
+
 
 const AllClassesPage = () => {
-    const axiosPublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
 
-    const { data: allClass = [], isLoading } = useQuery({
-        queryKey: ['class'],
-        queryFn: async () => {
-            const { data } = await axiosPublic.get('/class')
-            return data
-        }
+  const [totalPage, setTotalPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const onPageChange = (page) => setCurrentPage(page);
 
-    })
-    console.log(allClass)
+  const { data: allClass = []} = useQuery({
+    queryKey: ["class", currentPage],
+    queryFn: async () => {
+      const { data } = await axiosPublic.get(`/class-home?page=${currentPage}`);
+      setTotalPage(data.totalPages);
+      return data.data;
+    },
+  });
 
-    if (isLoading) return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
-    return (
-        <div className="grid md:grid-cols-3 gap-6 my-16 shadow-lg">
-            {/* map here */}
-            {allClass.map((singleClass) => <ClassCard key={singleClass._id} singleClass={singleClass} ></ClassCard>)}
-        </div>
-    );
+  return (
+    <div >
+      {/* map here */}
+      <div className="grid md:grid-cols-3 gap-6 my-16 shadow-lg">
+        {allClass.map((singleClass) => (
+          <ClassCard
+            key={singleClass._id}
+            singleClass={singleClass}
+          ></ClassCard>
+        ))}
+      </div>
+
+      <div className="flex justify-center items-center">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPage}
+          onPageChange={onPageChange}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default AllClassesPage;

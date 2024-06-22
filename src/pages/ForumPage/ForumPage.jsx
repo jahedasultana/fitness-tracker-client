@@ -6,7 +6,6 @@ import { useState } from "react";
 const ForumPage = () => {
   const axiosPublic = useAxiosPublic();
   const [page, setPage] = useState(1);
-
   const { data, isLoading } = useQuery({
     queryKey: ["forum", page],
     queryFn: async () => {
@@ -25,30 +24,30 @@ const ForumPage = () => {
         <title>Forums</title>
       </Helmet>
       <div className="container mx-auto p-4">
-        <h2 className="text-2xl font-bold mb-4">Forums</h2>
+        <h2 className="text-6xl text-center font-bold mb-4">Forum Posts</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {forums.map((forum) => (
             <div
               key={forum._id}
-              className="card bg-white p-4 shadow-md rounded-md"
+              className="card Forum Posts p-4"
             >
-              <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
+              <div className="flex flex-col mx-auto max-w-5xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
                 <div className="flex space-x-4">
                   <img
                     alt=""
-                    src={forum.trainer.image}
+                    src={forum.photoURL}
                     className="object-cover w-12 h-12 rounded-full shadow bg-gray-500 dark:bg-gray-500"
                   />
                   <div className="flex flex-col space-y-1">
                     <a
                       rel="noopener noreferrer"
                       href="#"
-                      className="text-sm font-semibold"
+                      className="text-xl font-bold"
                     >
-                      Leroy Jenkins
+                      {forum.displayName}
                     </a>
-                    <span className="text-xs text-gray-400 dark:text-gray-600">
-                      4 hours ago
+                    <span className="text-xs uppercase text-red-500 font-bold bg-black px-2 rounded-full ">
+                      {forum.role}
                     </span>
                   </div>
                 </div>
@@ -62,10 +61,8 @@ const ForumPage = () => {
                     className="object-cover w-full mb-4 h-60 sm:h-96 bg-gray-500 dark:bg-gray-500"
                   />
 
-                  <p className="text-sm text-gray-400 dark:text-gray-600">
-                    Eu qualisque aliquando mel, id lorem detraxit nec, ad elit
-                    minimum pri. Illum ipsum detracto ne cum. Mundi nemore te
-                    ius, vim ad illud atqui apeirian...
+                  <p className="text-lg text-gray-400 dark:text-gray-600">
+                    {forum.description}
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-between">

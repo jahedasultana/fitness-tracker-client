@@ -1,14 +1,39 @@
-import { useNavigate } from "react-router-dom";
+// import Select from "react-select";
 
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 
 const BookingCard = ({ trainer, slot }) => {
   const navigate = useNavigate();
-  console.log(trainer);
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+
+  // Fetch class data from the server
+  const {
+    data: classes,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["c"],
+    queryFn: async () => {
+      const response = await axiosSecure.get(`/class`);
+      return response.data;
+    },
+  });
+
+  if (error) {
+    console.error("Error fetching classes:", error);
+  }
+
+ 
+
   const paymentStarted = (packageInfo) => {
     // link to navigate payment page with packageinfo and trainer and slot data
-    console.log(packageInfo);
-    console.log(trainer);
-    console.log(slot);
+    
+   
+    
     navigate("/pay-now", {
       state: {
         trainer,
@@ -23,16 +48,27 @@ const BookingCard = ({ trainer, slot }) => {
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold tracking-wide">
-              Trainer Name:{trainer?.name}
+              Trainer Name:{trainer?.info?.name}
             </h2>
-            <p className="dark:text-gray-800">Selected Slot:{slot}</p>
+            <div className="w-1/2">
+              <select className="select select-bordered w-full max-w-xs">
+                <option disabled selected>
+                  Please select class
+                </option>
+                {!isLoading &&
+                  classes?.map((classItem) => (
+                    <option key={classItem._id}>{classItem.className}</option>
+                  ))}
+              </select>
+            </div>
+            <h2>Slot: {slot.selectedSlot}</h2>
           </div>
         </div>
         <div className="flex md:flex-row flex-col justify-between my-6">
           {trainer?.classLists?.map((classItem) => (
             <div key={classItem._id} className="shadow p-4">
               <h2 className="text-xl font-semibold tracking-wide">
-                Class Name: {classItem?.class_title}
+                Class Name: {classItem?.className}
               </h2>
               <p className="dark:text-gray-800">
                 Duration: {classItem?.duration}
@@ -112,7 +148,7 @@ const BookingCard = ({ trainer, slot }) => {
                 <button
                   type="button"
                   onClick={() => {
-                    console.log("clicked");
+                  
                     paymentStarted({
                       name: "basic",
                       price_show_name: "$10",
@@ -201,7 +237,7 @@ const BookingCard = ({ trainer, slot }) => {
                 </ul>
                 <button
                   onClick={() => {
-                    console.log("clicked");
+                   
                     paymentStarted({
                       name: "standard",
                       price_show_name: "$50",
@@ -305,7 +341,7 @@ const BookingCard = ({ trainer, slot }) => {
                 </ul>
                 <button
                   onClick={() => {
-                    console.log("premimum");
+                   
                     paymentStarted({
                       name: "premimum",
                       price_show_name: "$100",

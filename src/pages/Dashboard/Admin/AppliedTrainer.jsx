@@ -10,7 +10,7 @@ const AppliedTrainer = () => {
   const axios = useAxiosSecure();
 
   let fetchTrainer = () => {
-    fetch("http://localhost:5000/slot-slot")
+    fetch("https://fitness-tracker-server-lemon.vercel.app/slot-slot")
       .then((res) => res.json())
       .then((data) => setTrainers(data))
       .catch((error) => console.error("Error fetching trainers:", error));
@@ -18,7 +18,7 @@ const AppliedTrainer = () => {
 
   let confirmTrainer = (email, make_trainer = false) => {
     axios
-      .post("http://localhost:5000/slot/make-trainer/" + email, {
+      .post("https://fitness-tracker-server-lemon.vercel.app/slot/make-trainer/" + email, {
         make_trainer,
       })
       .then((res) => {
@@ -64,32 +64,32 @@ const AppliedTrainer = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {trainers.map((trainer, index) => (
+            {trainers?.map((trainer, index) => (
               <tr key={trainer._id} className="text-sm font-semibold text-gray-900 dark:text-white">
                 <td className="px-4 py-3">{index + 1}</td>
-                <td className="px-4 py-3">{trainer.email}</td>
-                <td className="px-4 py-3">{trainer.status}</td>
-                <td className="px-4 py-3">{trainer.info.name}</td>
-                <td className="px-4 py-3">{trainer.info.age}</td>
+                <td className="px-4 py-3">{trainer?.email}</td>
+                <td className="px-4 py-3">{trainer?.status}</td>
+                <td className="px-4 py-3">{trainer?.info?.name}</td>
+                <td className="px-4 py-3">{trainer?.info?.age}</td>
                 <td className="px-4 py-3">
                   <img
-                    src={trainer.info.photo}
+                    src={trainer?.info?.photo}
                     alt="Photo"
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </td>
-                <td className="px-4 py-3">{trainer.info.skill}</td>
-                <td className="px-4 py-3">{trainer.info.day}</td>
-                <td className="px-4 py-3">{trainer.info.time}</td>
+                <td className="px-4 py-3">{trainer?.info.skill}</td>
+                <td className="px-4 py-3">{trainer?.info.day}</td>
+                <td className="px-4 py-3">{trainer?.info.time}</td>
                 <td className="px-4 py-3 space-x-2">
                   <button
-                    onClick={() => confirmTrainer(trainer.email, true)}
+                    onClick={() => confirmTrainer(trainer?.email, true)}
                     className="btn btn-sm bg-green-500 text-white hover:bg-green-700"
                   >
                     Accept
                   </button>
                   <button
-                    onClick={() => confirmTrainer(trainer.email, false)}
+                    onClick={() => confirmTrainer(trainer?.email, false)}
                     className="btn btn-sm bg-red-500 text-white hover:bg-red-700"
                   >
                     Reject

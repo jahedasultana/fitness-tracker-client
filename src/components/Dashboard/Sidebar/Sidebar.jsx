@@ -14,8 +14,8 @@ import { IoChevronBackCircleSharp } from "react-icons/io5";
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
-  const [role, isLoading] = useRole();
-  console.log(role, isLoading);
+  const [role] = useRole();
+ 
 
   // Sidebar Responsive Handler
   const handleToggle = () => {

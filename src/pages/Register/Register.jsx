@@ -33,12 +33,12 @@ const Register = () => {
 
     createUser(email, password, fullName, photoURL)
       .then((result) => {
-        console.log(result.user);
+       
         if(result.user){
           toast.success("Registration successfully");
           navigate(from);
         }
-        console.log(result);
+       
 
 
        
@@ -52,7 +52,7 @@ const Register = () => {
           updateProfile(result.user, profileUpdates)
           .then(() => {
             refetchUser()
-            console.log("Profile updated successfully");
+         
             setUser({...user, 
               displayName: fullName,
               photoURL: photoURL

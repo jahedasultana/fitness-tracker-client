@@ -22,7 +22,6 @@ const Navbar = () => {
     setTheme(newTheme);
   };
 
-  // console.log(user);
 
   const tooltipContent = <>{user?.displayName || "User name not found"}</>;
   const tooltipString = renderToString(tooltipContent);

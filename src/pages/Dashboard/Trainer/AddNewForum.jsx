@@ -6,7 +6,6 @@ import { imageUpload } from "../../../components/imageUpload";
 import { Helmet } from "react-helmet-async";
 import { TbFidgetSpinner } from "react-icons/tb";
 
-
 const AddNewForum = () => {
   const { user, loading } = useAuth() || {};
   const axiosSecure = useAxiosSecure();
@@ -31,7 +30,7 @@ const AddNewForum = () => {
         icon: "error",
         confirmButtonText: "Try Again",
       });
-      console.log(error);
+    
     },
   });
 
@@ -41,19 +40,25 @@ const AddNewForum = () => {
     const title = form.title.value;
     const description = form.description.value;
     const image = form.image.files[0];
-  
-    const trainer = {
-      name: user?.displayName,
-      email: user?.email,
-      image: user?.photoURL,
-    };
+    const photoURL = user?.photoURL;
+    const displayName = user?.displayName;
+    const email = user.email;
+    const role = user.role; 
     try {
       const image_url = await imageUpload(image);
-      const ForumData = { title, description, image: image_url, trainer };
+      const ForumData = {
+        title,
+        description,
+        image: image_url,
+        photoURL,
+        displayName,
+        email,
+        role, 
+      };
       console.table(ForumData);
       await mutateAsync(ForumData);
     } catch (err) {
-      console.log(err);
+      
       Swal.fire({
         title: "Error!",
         text: "Failed to upload image",
@@ -66,11 +71,11 @@ const AddNewForum = () => {
   return (
     <div>
       <Helmet>
-        <title>Trainer | Add Class</title>
+        <title>Trainer | Add Post</title>
       </Helmet>
       <div className="text-lg bg-violet-900 font-bold p-4 md:p-8 lg:p-16 my-16 mx-2 rounded-md">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-white font-lato text-center font-extrabold mb-6">
-          Add Class
+          Add Post
         </h2>
 
         <form onSubmit={handleClassAdd} className="space-y-4">
@@ -79,7 +84,7 @@ const AddNewForum = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white text-lg font-bold">
-                Post Title
+                  Post Title
                 </span>
               </label>
               <input
@@ -93,7 +98,7 @@ const AddNewForum = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white text-lg font-bold">
-                 Image
+                  Image
                 </span>
               </label>
               <input
@@ -109,7 +114,7 @@ const AddNewForum = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text text-white text-lg font-bold">
-          Post Description
+                Post Description
               </span>
             </label>
             <textarea
@@ -118,6 +123,51 @@ const AddNewForum = () => {
               placeholder="Post Description"
               className="input input-bordered input-double-line p-3"
             />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-white text-lg font-bold">Trainer Photo</span>
+            </label>
+            <label className="input-group">
+              <input
+                readOnly
+                type="text"
+                name="photoURL"
+                placeholder="PhotoURL"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          {/* form name, email */}
+          <div className="md:flex mb-8">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">User Name</span>
+              </label>
+              <label className="input-group">
+                <input
+                  readOnly
+                  type="text"
+                  name="displayName"
+                  placeholder="displayName"
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2 ml-4">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">User Email</span>
+              </label>
+              <label className="input-group">
+                <input
+                  readOnly
+                  type="email"
+                  name="email"
+                  placeholder="User Email"
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
           </div>
           {/* Submit Button */}
           <button

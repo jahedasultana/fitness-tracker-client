@@ -30,6 +30,7 @@ import AdminRoute from "./AdminRoute";
 import AddForum from "../pages/Dashboard/Admin/AddForum";
 import ForumPage from "../pages/ForumPage/ForumPage";
 import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
+import PayNow from "../pages/Payment/PayNow";
 
 
 
@@ -52,6 +53,10 @@ import TrainerBooked from "../pages/TrainerBooked/TrainerBooked";
           {
             path: "/login",
             element: <Login></Login>,
+          },
+          {
+            path: "/pay-now",
+            element: <PrivateRoute><PayNow></PayNow></PrivateRoute>,
           },
           {
             path: "/allTrainer",

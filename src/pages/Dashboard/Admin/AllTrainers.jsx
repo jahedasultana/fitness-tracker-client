@@ -9,7 +9,7 @@ const AllTrainers = () => {
   const [trainers, setTrainers] = useState([]);
   const axios = useAxiosSecure();
   let fetchTrainer = () => {
-    fetch("http://localhost:5000/users/trainer")
+    fetch("https://fitness-tracker-server-lemon.vercel.app/users/trainer")
       .then((res) => res.json())
       .then((data) => setTrainers(data))
       .catch((error) => console.error("Error fetching trainers:", error));
@@ -19,9 +19,9 @@ const AllTrainers = () => {
   }, []);
   const handleDelete = async (email) => {
     let res = await axios.post(
-      `http://localhost:5000/users/trainer/demote/${email}`
+      `https://fitness-tracker-server-lemon.vercel.app/users/trainer/demote/${email}`
     );
-    console.log(res.data);
+    
     if (res.status == 200) {
       fetchTrainer();
       toast.success(res.data.message);

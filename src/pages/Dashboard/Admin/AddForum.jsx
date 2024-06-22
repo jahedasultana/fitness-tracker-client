@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { imageUpload } from "../../../components/imageUpload";
 import { Helmet } from "react-helmet-async";
-
+import { TbFidgetSpinner } from "react-icons/tb";
 
 const AddForum = () => {
   const { user, loading } = useAuth() || {};
@@ -17,7 +17,7 @@ const AddForum = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['forums']); // Ensure the forum data is refetched after a new post
+      queryClient.invalidateQueries(["forums"]); // Ensure the forum data is refetched after a new post
       Swal.fire({
         title: "Success!",
         text: "Post added successfully",
@@ -32,7 +32,7 @@ const AddForum = () => {
         icon: "error",
         confirmButtonText: "Try Again",
       });
-      console.log(error);
+      
     },
   });
 
@@ -42,18 +42,26 @@ const AddForum = () => {
     const title = form.title.value;
     const description = form.description.value;
     const image = form.image.files[0];
-    const admin = {
-      name: user?.displayName,
-      email: user?.email,
-      image: user?.photoURL,
-    };
+    const photoURL = user?.photoURL;
+    const displayName = user?.displayName;
+    const email = user.email;
+    const role = user.role; // Include the user's role
+
     try {
       const image_url = await imageUpload(image);
-      const ForumData = { title, description, image: image_url, admin };
+      const ForumData = {
+        title,
+        description,
+        image: image_url,
+        photoURL,
+        displayName,
+        email,
+        role, // Add role to ForumData
+      };
       console.table(ForumData);
       await mutateAsync(ForumData);
     } catch (err) {
-      console.log(err);
+     
       Swal.fire({
         title: "Error!",
         text: "Failed to upload image",
@@ -118,6 +126,57 @@ const AddForum = () => {
               placeholder="Post Description"
               className="input input-bordered input-double-line p-3"
             />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-white text-lg font-bold">
+                Admin Photo
+              </span>
+            </label>
+            <label className="input-group">
+              <input
+                readOnly
+                type="text"
+                name="photoURL"
+                placeholder="PhotoURL"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          {/* form name, email */}
+          <div className="md:flex mb-8">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">
+                  User Name
+                </span>
+              </label>
+              <label className="input-group">
+                <input
+                  readOnly
+                  type="text"
+                  name="displayName"
+                  placeholder="displayName"
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2 ml-4">
+              <label className="label">
+                <span className="label-text text-white text-lg font-bold">
+                  User Email
+                </span>
+              </label>
+              <label className="input-group">
+                <input
+                  readOnly
+                  type="email"
+                  name="email"
+                  placeholder="User Email"
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
           </div>
           {/* Submit Button */}
           <button

@@ -31,7 +31,7 @@ const AddNewClass = () => {
         icon: "error",
         confirmButtonText: "Try Again",
       });
-      console.log(error);
+      
     },
   });
 
@@ -52,7 +52,7 @@ const AddNewClass = () => {
       console.table(classData);
       await mutateAsync(classData);
     } catch (err) {
-      console.log(err);
+      
       Swal.fire({
         title: "Error!",
         text: "Failed to upload image",

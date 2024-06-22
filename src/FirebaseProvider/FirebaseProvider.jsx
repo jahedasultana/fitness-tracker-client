@@ -30,7 +30,7 @@ const FirebaseProvider = ({ children }) => {
     setIsUpdated(!isUpdated);
     
   }
-  console.log(user);
+  
   // create user
   const createUser = (email, password) => {
     setLoading(false);
@@ -69,7 +69,7 @@ const FirebaseProvider = ({ children }) => {
 
   // save user
   const saveUser = async user => {
-    console.log(user);
+   
     const currentUser = {
       email: user?.email,
       name: user?.displayName,

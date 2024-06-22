@@ -1,8 +1,6 @@
-import { Link, useParams } from "react-router-dom";
-
 import { useQuery } from "@tanstack/react-query";
-
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Link, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Details = () => {
@@ -19,12 +17,12 @@ const Details = () => {
   });
 
   const { data: slotTime = {} } = useQuery({
-    queryKey: ["slot", user?.email],
+    queryKey: ["slot", trainer?.email],
     queryFn: async () => {
-      const { data } = await axiosPublic.get(`/slot-add/${user?.email}`);
+      const { data } = await axiosPublic.get(`/slot-add/${trainer?.email}`);
       return data;
     },
-    enabled: !!user?.email,
+    enabled: !!trainer?.email,
   });
 
   if (isLoading) {
@@ -36,107 +34,90 @@ const Details = () => {
   return (
     <header className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-16 mx-auto">
-        <div className="items-center lg:flex">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start">
           {/* Trainer information section */}
-          <div className="w-full lg:w-1/2">
-            <div className="lg:max-w-lg">
-              <div className="max-w-2xl overflow-hidden bg-white dark:bg-gray-800">
-                <img
-                  className="object-center w-full h-64 px-32"
-                  src={trainer.photo}
-                  alt="Article"
-                />
+          <div className="w-full lg:w-1/2 lg:pr-8">
+            <div className="lg:max-w-lg bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+              <img
+                className="object-cover w-full"
+                src={trainer.photo}
+                alt="Trainer"
+              />
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                  {trainer.name}
+                </h2>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  {trainer.bio}
+                </p>
+                <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                  <p className="">
+                    <strong>Experience:</strong> {trainer.experience}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <strong>Email:</strong> {trainer.email}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <strong>Description:</strong> {trainer.description}
+                  </p>
 
-                <div className="p-6">
-                  <div>
-                    <span className="text-[14px] font-medium text-blue-600 uppercase dark:text-blue-400">
-                      Trainer: {trainer.name}
-                    </span>
-                    <a
-                      href="#"
-                      className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
-                      role="link"
-                    >
-                      Details: {trainer.specialist}
-                    </a>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                      {trainer.bio}
+                  <p className="mb-2 font-bold">
+                    Time: {trainer.time.join(", ")}
+                  </p>
+                  <div className="flex justify-between">
+                    <p className="mb-2 font-bold">
+                      Skills: {trainer.skill.join(", ")}
                     </p>
-                    <span className="text-[14px] font-medium text-black uppercase dark:text-blue-400">
-                      Experience: {trainer.experience}
-                    </span>
-                    <br />
-                    <span className="text-[14px] font-medium text-black uppercase dark:text-blue-400">
-                      Specialist: {trainer.otherInfo}
-                    </span>
+                    <p className="mb-2 font-bold">Age: {trainer.age}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-            <section className="p-6 dark:bg-gray-100 dark:text-gray-800">
-              <div className="container mx-auto">
-                {/* Become a trainer section */}
-                <Link to="/becomeATrainer" className="btn-success btn w-full mb-5">
-                  Become a Trainer
-                </Link>
-
-                {/* Available slots section */}
-                <span className="block mb-2 text-xs font-medium tracking-widest text-center uppercase dark:text-violet-600">
-                  For Booking
-                </span>
-                <h2 className="text-5xl font-bold text-center dark:text-gray-900">
-                  Available Slots
-                </h2>
-                <div className="grid  gap-6 my-16 lg:grid-cols-3">
-                  {slotTime.day && slotTime.day.length > 0 && (
-                    <>
-                      <Link
-                        to={"/bookingPage"}
-                        state={{
-                          slotTime: slotTime,
-                          selectedSlot: slotTime.day[0],
-                        }}
-                        className="flex flex-col  p-8 space-y-4 rounded-md dark:bg-gray-50"
-                      >
-                        <div className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
-                          1
-                        </div>
-                        <p className="text-2xl font-semibold">{slotTime.day[0]}</p>
-                      </Link>
-                      <Link
-                        to={"/bookingPage"}
-                        state={{
-                          slotTime: slotTime,
-                          selectedSlot: slotTime.day[1],
-                        }}
-                        className="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-50"
-                      >
-                        <div className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
-                          2
-                        </div>
-                        <p className="text-2xl font-semibold">{slotTime.day[1]}</p>
-                      </Link>
-                      <Link
-                        to={"/bookingPage"}
-                        state={{
-                          slotTime: slotTime,
-                          selectedSlot: slotTime.day[2],
-                        }}
-                        className="flex flex-col  p-8 space-y-4 rounded-md dark:bg-gray-50"
-                      >
-                        <div className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-xl font-bold rounded-full dark:bg-violet-600 dark:text-gray-50">
-                          3
-                        </div>
-                        <p className="text-2xl font-semibold">{slotTime.day[2]}</p>
-                      </Link>
-                    </>
-                  )}
-                </div>
+          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
+              <span className="block mb-2 text-lg font-medium tracking-widest text-center uppercase dark:text-violet-600">
+                For Booking
+              </span>
+              <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white">
+                Available Slots
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                {slotTime.day &&
+                  slotTime.day.length > 0 &&
+                  slotTime.day.map((day, index) => (
+                    <Link
+                      key={index}
+                      to={"/bookingPage"}
+                      state={{
+                        slotTime: slotTime,
+                        trainer: trainer,
+                        selectedSlot: day,
+                      }}
+                      className="flex flex-col items-center text-center text-black p-4 dark:text-white bg-gray-50 dark:bg-gray-800 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300"
+                    >
+                      <div className="flex items-center justify-center w-10 h-10 text-xl font-bold rounded-full bg-violet-600 text-white mb-2">
+                        {index + 1}
+                      </div>
+                      <p className="text-lg font-semibold">{day}</p>
+                    </Link>
+                  ))}
               </div>
-            </section>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <div className="bg-white dark:bg-gray-800 h-48 w-full mx-auto my-12 rounded-xl flex  items-center justify-around shadow-xl dark:border-none border">
+            <h2 className="text-4xl font-bold dark:text-white mb-4">
+              Become A Trainer
+            </h2>
+            <Link
+              to="/become-a-trainer"
+              className="bg-blue-500 btn border-none  btn-lg text-white py-4 px-6 rounded-lg"
+            >
+              Apply Now
+            </Link>
           </div>
         </div>
       </div>

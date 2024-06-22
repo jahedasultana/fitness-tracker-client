@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+
 import Select from "react-select";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { Helmet } from "react-helmet-async";
@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 const AddNewSlot = () => {
   const { user, loading } = useAuth() || {};
@@ -18,7 +19,7 @@ const AddNewSlot = () => {
   const { data: slotData } = useQuery({
     queryKey: ["slot", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/slot/${user?.email}`);
+      const { data } = await axiosSecure.get(`/slot-data/${user?.email}`);
       return data;
     },
     enabled: !!user?.email, // only run the query if user.email is available
@@ -35,7 +36,7 @@ const AddNewSlot = () => {
 
   const { mutateAsync } = useMutation({
     mutationFn: async (trainerSlotData) => {
-      const {data}   = await axiosSecure.post(`/slot`, trainerSlotData);
+      const { data } = await axiosSecure.post(`/slot`, trainerSlotData);
       return data;
     },
     onSuccess: () => {
@@ -48,18 +49,18 @@ const AddNewSlot = () => {
 
   useEffect(() => {
     if (slotData) {
-      setSelectedDays(slotData.day.map(day => ({ value: day, label: day })));
+      setSelectedDays(slotData?.day?.map(day => ({ value: day, label: day })));
     }
   }, [slotData]);
 
   const handleClassAdd = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const trainerName = form.trainerName.value;
-    const email = form.email.value;
-    const day = selectedDays.map((day) => day?.value);
-    const time = inputTimes.split(",").map((time) => time.trim());
-    const skill = selectedSkills.map((skill) => skill?.value);
+    const trainerName = form?.trainerName?.value;
+    const email = form?.email?.value;
+    const day = selectedDays?.map((day) => day?.value);
+    const time = inputTimes?.split(",").map((time) => time?.trim());
+    const skill = selectedSkills?.map((skill) => skill?.value);
 
     const trainer = {
       name: user?.displayName,
@@ -136,7 +137,7 @@ const AddNewSlot = () => {
             <div>
               <label className="text-white dark:text-gray-200">Times</label>
               <input
-                type="number"
+                type="text"
                 className="px-4 py-2 mt-2 w-full text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                 placeholder="Enter times"
                 value={inputTimes}
@@ -149,7 +150,7 @@ const AddNewSlot = () => {
             <Select
               className="px-4 py-2 mt-2"
               name="Skill"
-              options={classes?.map(c => ({ value: c.className, label: c.className }))}
+              options={classes?.length > 0 ? classes?.map(c => ({ value: c.className, label: c.className })) : []}
               labelField="label"
               valueField="label"
               isLoading={isLoadingClasses}

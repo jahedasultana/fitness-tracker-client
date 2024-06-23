@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link, useParams } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+
 
 const Details = () => {
-  const { user } = useAuth();
+ 
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
 

@@ -33,7 +33,7 @@ const AllTrainerPage = () => {
             <img
               src={slot.photo}
               alt=""
-              className="w-40 h-40 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+              className="w-40 h-40 mx-auto object-cover rounded-full dark:bg-gray-500 aspect-square"
             />
             <h3 className="text-3xl capitalize mt-6 text-violet-600 font-bold mb-2">
               {slot.name}

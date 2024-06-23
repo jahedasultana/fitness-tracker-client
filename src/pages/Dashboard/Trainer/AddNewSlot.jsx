@@ -72,7 +72,7 @@ const AddNewSlot = () => {
     };
 
     const trainerSlotData = { trainerName, email, trainer, day, time, skill };
-    console.log(trainerSlotData);
+    
     await mutateAsync(trainerSlotData);
   };
 

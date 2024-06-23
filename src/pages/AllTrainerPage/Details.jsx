@@ -24,7 +24,7 @@ const Details = () => {
     },
     enabled: !!trainer?.email,
   });
-  console.log('slot time', slotTime)
+
 
   if (isLoading) {
     return (

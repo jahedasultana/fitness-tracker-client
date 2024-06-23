@@ -26,7 +26,7 @@ const ClassesSection = () => {
       ></SectionTitle>
       <div className="grid md:grid-cols-2 gap-6">
         {
-            classes.map(item => <ClassesSectionCard 
+            classes.slice(0, 4).map(item => <ClassesSectionCard 
                 key={item._id}
                 item={item}
                 ></ClassesSectionCard>)

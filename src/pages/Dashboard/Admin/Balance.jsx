@@ -11,14 +11,14 @@ const Balance = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/subscribers')
+        fetch('https://fitness-tracker-server-lemon.vercel.app/subscribers')
             .then(res => res.json())
             .then(data => setSubscribers(data))
             .catch(error => console.error('Error fetching subscribers:', error));
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/payment-list')
+        fetch('https://fitness-tracker-server-lemon.vercel.app/payment-list')
             .then(res => res.json())
             .then(data => setTrainers(data?.data))
             .catch(error => console.error('Error fetching trainers:', error));

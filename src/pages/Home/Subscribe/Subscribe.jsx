@@ -15,7 +15,7 @@ const Subscribe = () => {
             email,
         };
 
-        fetch('https://fitness-tracker-server-lemon.vercel.app/subscribe', {
+        fetch('http://localhost:5000/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

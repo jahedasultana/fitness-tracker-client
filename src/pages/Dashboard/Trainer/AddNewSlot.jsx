@@ -13,7 +13,8 @@ const AddNewSlot = () => {
   const axiosSecure = useAxiosSecure();
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedDays, setSelectedDays] = useState([]);
-  const [inputTimes, setInputTimes] = useState("");
+  const [selectedTimes, setSelectedTimes] = useState([]);
+  // const [inputTimes, setInputTimes] = useState("");
 
   // Fetch slot data for the logged-in user
   const { data: slotData } = useQuery({
@@ -59,7 +60,9 @@ const AddNewSlot = () => {
     const trainerName = form?.trainerName?.value;
     const email = form?.email?.value;
     const day = selectedDays?.map((day) => day?.value);
-    const time = inputTimes?.split(",").map((time) => time?.trim());
+    const time = selectedTimes?.map((time) => time?.value);
+
+    // const time = inputTimes?.split(",").map((time) => time?.trim());
     const skill = selectedSkills?.map((skill) => skill?.value);
 
     const trainer = {
@@ -69,6 +72,7 @@ const AddNewSlot = () => {
     };
 
     const trainerSlotData = { trainerName, email, trainer, day, time, skill };
+    console.log(trainerSlotData);
     await mutateAsync(trainerSlotData);
   };
 
@@ -80,6 +84,15 @@ const AddNewSlot = () => {
     { value: "Wednesday", label: "Wednesday" },
     { value: "Thursday", label: "Thursday" },
     { value: "Friday", label: "Friday" },
+  ];
+
+  const timeOptions = [
+    { value: "9:00 AM", label: "9:00 AM" },
+    { value: "11:00 AM", label: "11:00 AM" },
+    { value: "3:00 PM", label: "3:00 PM" },
+    { value: "8:00 PM", label: "8:00 PM" },
+   
+   
   ];
 
   return (
@@ -135,6 +148,19 @@ const AddNewSlot = () => {
               />
             </div>
             <div>
+              <label className="text-white dark:text-gray-200">Time</label>
+              <Select
+                className="px-4 py-2 mt-2"
+                name="time"
+                options={timeOptions}
+                labelField="label"
+                valueField="label"
+                value={selectedTimes}
+                isMulti
+                onChange={setSelectedTimes}
+              />
+            </div>
+            {/* <div>
               <label className="text-white dark:text-gray-200">Times</label>
               <input
                 type="text"
@@ -143,7 +169,7 @@ const AddNewSlot = () => {
                 value={inputTimes}
                 onChange={(e) => setInputTimes(e.target.value)}
               />
-            </div>
+            </div> */}
           </div>
           <div>
             <label className="text-white dark:text-gray-200">Class Name</label>

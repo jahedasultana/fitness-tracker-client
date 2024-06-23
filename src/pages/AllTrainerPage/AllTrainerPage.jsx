@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
 
 const AllTrainerPage = () => {
   const axiosPublic = useAxiosPublic();
@@ -33,16 +35,29 @@ const AllTrainerPage = () => {
               alt=""
               className="w-40 h-40 mx-auto rounded-full dark:bg-gray-500 aspect-square"
             />
-            <h3 className="text-2xl text-violet-600 font-bold mb-2">{slot.name}</h3>
+            <h3 className="text-3xl capitalize mt-6 text-violet-600 font-bold mb-2">
+              {slot.name}
+            </h3>
             <div className="flex justify-between">
               <p className="mb-2 font-bold">Age: {slot.age}</p>
-              <p className="mb-2 font-bold">Experience: {slot.experience}</p>
+              <p className="mb-2 font-bold">Experience: {slot.experience} years</p>
             </div>
             <div className="flex justify-between">
-          
               <p className="mb-2 font-bold">Time: {slot.time.join(", ")}</p>
             </div>
+
             <p className="mb-2 font-bold">Skills: {slot.skill.join(", ")}</p>
+            <div className="flex gap-6 my-3">
+              <Link>
+                <FaFacebook className="text-3xl" />
+              </Link>
+              <Link>
+                <GrInstagram className="text-3xl" />
+              </Link>
+              <Link>
+                <FaTwitter className="text-3xl" />
+              </Link>
+            </div>
             <button className="mt-2 px-4 py-2 bg-violet-500 w-full text-white rounded-md">
               See More
             </button>

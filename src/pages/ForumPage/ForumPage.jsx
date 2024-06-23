@@ -9,7 +9,7 @@ const ForumPage = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["forum", page],
     queryFn: async () => {
-      const { data } = await axiosPublic.get(`/forum`);
+      const { data } = await axiosPublic.get(`/forum?page=${page}`);
       return data;
     },
   });
@@ -24,17 +24,17 @@ const ForumPage = () => {
         <title>Forums</title>
       </Helmet>
       <div className="container mx-auto p-4">
-        <h2 className="text-6xl text-center font-bold mb-4">Forum Posts</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <h2 className="lg:text-6xl text-2xl text-center font-bold mb-4">Forum Posts</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {forums.map((forum) => (
             <div
               key={forum._id}
-              className="card Forum Posts p-4"
+              className="card p-4 shadow-lg rounded-lg bg-gray-900 text-gray-100 dark:bg-gray-50 dark:text-gray-800"
             >
-              <div className="flex flex-col mx-auto max-w-5xl p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
+              <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg bg-gray-800 text-gray-100 dark:bg-gray-50 dark:text-gray-800">
                 <div className="flex space-x-4">
                   <img
-                    alt=""
+                    alt={forum.displayName}
                     src={forum.photoURL}
                     className="object-cover w-12 h-12 rounded-full shadow bg-gray-500 dark:bg-gray-500"
                   />
@@ -46,7 +46,7 @@ const ForumPage = () => {
                     >
                       {forum.displayName}
                     </a>
-                    <span className="text-xs uppercase text-red-500 font-bold bg-black px-2 rounded-full ">
+                    <span className="text-xs uppercase text-red-500 font-bold bg-black px-2 rounded-full">
                       {forum.role}
                     </span>
                   </div>
@@ -58,9 +58,8 @@ const ForumPage = () => {
                   <img
                     src={forum.image}
                     alt=""
-                    className="object-cover w-full mb-4 h-60 sm:h-96 bg-gray-500 dark:bg-gray-500"
+                    className="object-cover rounded-lg w-full mb-4 h-60 sm:h-96 bg-gray-500 dark:bg-gray-500"
                   />
-
                   <p className="text-lg text-gray-400 dark:text-gray-600">
                     {forum.description}
                   </p>

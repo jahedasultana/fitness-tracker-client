@@ -10,7 +10,7 @@ const AppliedTrainer = () => {
   const axios = useAxiosSecure();
 
   let fetchTrainer = () => {
-    fetch("https://fitness-tracker-server-lemon.vercel.app/slot-slot")
+    fetch("http://localhost:5000/slot-slot")
       .then((res) => res.json())
       .then((data) => setTrainers(data))
       .catch((error) => console.error("Error fetching trainers:", error));
@@ -18,7 +18,7 @@ const AppliedTrainer = () => {
 
   let confirmTrainer = (email, make_trainer = false) => {
     axios
-      .post("https://fitness-tracker-server-lemon.vercel.app/slot/make-trainer/" + email, {
+      .post("http://localhost:5000/slot/make-trainer/" + email, {
         make_trainer,
       })
       .then((res) => {

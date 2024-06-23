@@ -24,6 +24,7 @@ const Details = () => {
     },
     enabled: !!trainer?.email,
   });
+  console.log('slot time', slotTime)
 
   if (isLoading) {
     return (
@@ -84,6 +85,27 @@ const Details = () => {
                 Available Slots
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                {slotTime.time &&
+                  slotTime.time.length > 0 &&
+                  slotTime.time.map((time, index) => (
+                    <Link
+                      key={index}
+                      to={"/bookingPage"}
+                      state={{
+                        slotTime: slotTime,
+                        trainer: trainer,
+                        selectedSlot: time,
+                      }}
+                      className="flex flex-col items-center text-center text-black p-4 dark:text-white bg-gray-50 dark:bg-gray-800 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300"
+                    >
+                      <div className="flex items-center justify-center w-10 h-10 text-xl font-bold rounded-full bg-violet-600 text-white mb-2">
+                        {index + 1}
+                      </div>
+                      <p className="text-lg font-semibold">{time}</p>
+                    </Link>
+                  ))}
+              </div>
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
                 {slotTime.day &&
                   slotTime.day.length > 0 &&
                   slotTime.day.map((day, index) => (
@@ -103,7 +125,7 @@ const Details = () => {
                       <p className="text-lg font-semibold">{day}</p>
                     </Link>
                   ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -43,9 +43,11 @@ const AllTrainerPage = () => {
               <p className="mb-2 font-bold">Experience: {slot.experience} years</p>
             </div>
             <div className="flex justify-between">
-              <p className="mb-2 font-bold">Time: {slot.time.join(", ")}</p>
-            </div>
+             
+              <p className="mb-2 font-bold">Day: {slot.day.join(", ")}</p>
 
+            </div>
+          
             <p className="mb-2 font-bold">Skills: {slot.skill.join(", ")}</p>
             <div className="flex gap-6 my-3">
               <Link>
@@ -69,3 +71,4 @@ const AllTrainerPage = () => {
 };
 
 export default AllTrainerPage;
+

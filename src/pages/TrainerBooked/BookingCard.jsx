@@ -45,13 +45,13 @@ const BookingCard = ({ trainer, slot }) => {
   return (
     <div className="">
       <div className="w-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
-        <div className="flex flex-col justify-between p-6 space-y-8">
-          <div className="space-y-2">
+        <div className="flex flex-col justify-between p-6 space-y-8 bg-violet-600 text-white">
+          <div className="space-y-2 ">
             <h2 className="text-3xl font-semibold tracking-wide">
               Trainer Name:{trainer?.info?.name}
             </h2>
             <div className="w-1/2">
-              <select className="select select-bordered w-full max-w-xs">
+              <select className="select select-bordered w-full max-w-xs text-black">
                 <option disabled selected>
                   Please select class
                 </option>

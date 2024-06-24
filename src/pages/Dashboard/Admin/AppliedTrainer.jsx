@@ -48,29 +48,29 @@ const AppliedTrainer = () => {
       <SectionTitle heading="Applied Trainers" />
       <div className="overflow-x-auto rounded-xl">
         <table className="min-w-full bg-white dark:bg-violet-500 divide-y divide-gray-200">
-          <thead className="bg-violet-900 text-lg font-bold text-white">
+          <thead className="bg-violet-900 text-sm font-bold text-white">
             <tr className="text-left">
-              <th className="px-4 py-3">Sl</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Age</th>
-              <th className="px-4 py-3">Photo</th>
-              <th className="px-4 py-3">Skill</th>
-              <th className="px-4 py-3">Day</th>
-              <th className="px-4 py-3">Time</th>
-              <th className="px-4 py-3">Action</th>
+              <th className="px-2 py-3">Sl</th>
+              <th className="px-2 py-3">Email</th>
+              <th className="px-2 py-3">Status</th>
+              <th className="px-2 py-3">Name</th>
+              <th className="px-2 py-3">Age</th>
+              <th className="px-2 py-3">Photo</th>
+              <th className="px-2 py-3">Skill</th>
+              <th className="px-2 py-3">Day</th>
+              <th className="px-2 py-3">Time</th>
+              <th className="px-2 py-3">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {trainers?.map((trainer, index) => (
               <tr key={trainer._id} className="text-sm font-semibold text-gray-900 dark:text-white">
-                <td className="px-4 py-3">{index + 1}</td>
-                <td className="px-4 py-3">{trainer?.email}</td>
-                <td className="px-4 py-3">{trainer?.status}</td>
-                <td className="px-4 py-3">{trainer?.info?.name}</td>
-                <td className="px-4 py-3">{trainer?.info?.age}</td>
-                <td className="px-4 py-3">
+                <td className="px-3 py-3">{index + 1}</td>
+                <td className="px-3 py-3">{trainer?.email}</td>
+                <td className="px-3 py-3">{trainer?.status}</td>
+                <td className="px-3 py-3">{trainer?.info?.name}</td>
+                <td className="px-3 py-3">{trainer?.info?.age}</td>
+                <td className="px-3 py-3">
                   <img
                     src={trainer?.info?.photo}
                     alt="Photo"
@@ -89,7 +89,7 @@ const AppliedTrainer = () => {
                   </button>
                   <button
                     onClick={() => confirmTrainer(trainer?.email, false)}
-                    className="btn btn-sm bg-red-500 text-white hover:bg-red-700"
+                    className="btn btn-sm mt-2 bg-red-500 text-white hover:bg-red-700"
                   >
                     Reject
                   </button>

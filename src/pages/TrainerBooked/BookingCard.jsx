@@ -155,7 +155,7 @@ const BookingCard = ({ trainer, slot }) => {
                       price: 10,
                     });
                   }}
-                  className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-600 dark:text-gray-50"
+                  className="inline-block px-5 py-3 font-semibold tracking-wider text-center btn bg-violet-500 rounded dark:bg-violet-600 dark:text-gray-50 text-white"
                 >
                   Get Started
                 </button>
@@ -244,7 +244,7 @@ const BookingCard = ({ trainer, slot }) => {
                       price: 50,
                     });
                   }}
-                  className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded dark:bg-gray-100 dark:text-violet-600"
+                  className="inline-block w-full px-5 py-3 font-bold tracking-wider btn text-center rounded dark:bg-gray-100 dark:text-violet-600 bg-violet-500 text-white"
                 >
                   Get Started
                 </button>
@@ -348,7 +348,7 @@ const BookingCard = ({ trainer, slot }) => {
                       price: 100,
                     });
                   }}
-                  className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-600 dark:text-gray-50"
+                  className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center btn rounded dark:bg-violet-600 dark:text-gray-50 bg-violet-500 text-white"
                 >
                   Get Started
                 </button>

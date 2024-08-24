@@ -9,8 +9,9 @@ const ClassesSectionCard = ({ item }) => {
         alt=""
       />
       <div>
-        <h3 className="uppercase text-violet-500 font-bold text-lg">
-          {className}*****************
+        <h3 className="uppercase flex flex-wrap text-violet-500 font-bold text-lg">
+          {className}<span>**********************
+            </span> 
         </h3>
         
         <p>{description}</p>

@@ -41,9 +41,9 @@ const Subscribe = () => {
     return (
         <div className="mb-20">
             <SectionTitle heading="Newsletter" />
-            <section className="p-6 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800">
+            <section className="p-6  bg-gray-100 dark:bg-gray-800 text-gray-100 dark:text-gray-800">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
-                    <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 bg-gray-900 dark:bg-gray-50">
+                    <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-900 bg-gray-50">
                         <h1 className="text-5xl font-extrabold mb-12 text-gray-50 dark:text-gray-900">Subscription</h1>
                         <form onSubmit={handleSubscribe} className="self-stretch space-y-3">
                             <div>
@@ -72,7 +72,7 @@ const Subscribe = () => {
                                     required
                                 />
                             </div>
-                            <button type="submit" className="w-full py-4 font-semibold rounded bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50">
+                            <button type="submit" className="w-full py-4 font-semibold rounded bg-[#133c55] dark:bg-[#133c55] text-gray-900 dark:text-gray-50">
                                 Subscribe Now
                             </button>
                         </form>

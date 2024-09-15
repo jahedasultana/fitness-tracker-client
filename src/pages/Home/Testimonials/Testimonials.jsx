@@ -24,7 +24,7 @@ const Testimonials = () => {
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
-            <div className="mx-24 my-10 flex flex-col items-center bg-violet-600 p-10 rounded-3xl">
+            <div className="mx-24 my-10 flex flex-col items-center bg-[#133c55] p-10 rounded-3xl">
               <img
                 alt=""
                 src={review.photoURL}

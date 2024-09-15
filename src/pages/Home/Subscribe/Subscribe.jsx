@@ -55,7 +55,9 @@ const Subscribe = () => {
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Your name"
-                                    className="w-full p-4 rounded-md focus:ring focus:ring-violet-400 border-gray-700 dark:border-gray-300"
+                                    className="w-full p-4 rounded-md focus:ring focus:ring-violet-400
+                                    border border-gray-300 dark:border-gray-700
+                                    dark:bg-gray-800"
                                     required
                                 />
                             </div>
@@ -68,11 +70,13 @@ const Subscribe = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Email address"
-                                    className="w-full p-4 rounded-md focus:ring focus:ring-violet-400 border-gray-700 dark:border-gray-300"
+                                    className="w-full p-4 rounded-md focus:ring focus:ring-violet-400 
+                                    border border-gray-300 dark:border-gray-700
+                                    dark:bg-gray-800"
                                     required
                                 />
                             </div>
-                            <button type="submit" className="w-full py-4 font-semibold rounded bg-[#133c55] dark:bg-[#133c55] text-gray-900 dark:text-gray-50">
+                            <button type="submit" className="w-full py-4 font-semibold rounded bg-[#133c55] dark:bg-[#133c55] text-gray-200 dark:text-gray-50">
                                 Subscribe Now
                             </button>
                         </form>

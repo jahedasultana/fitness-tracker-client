@@ -10,7 +10,7 @@ const ClassesSectionCard = ({ item }) => {
       />
       <div>
         <h3 className="uppercase flex flex-wrap text-violet-500 font-bold text-lg">
-          {className}<span>**********************
+          {className}<span>
             </span> 
         </h3>
         

@@ -27,21 +27,21 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li className="font-semibold">
+      <li className="font-semibold hover:underline">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:underline">
         <NavLink to="/allTrainer">All Trainer</NavLink>
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:underline">
         <NavLink to="/allClasses">All Classes</NavLink>
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:underline">
         <NavLink to="/community">Community</NavLink>
       </li>
 
       {user && (
-        <li className="font-semibold">
+        <li className="font-semibold hover:underline">
           <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
       )}
@@ -75,7 +75,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <div className="font-pop font-bold lg:text-2xl  sm:flex items-center justify-center text-violet-500">
+        <div className="font-pop font-bold lg:text-2xl  sm:flex items-center justify-center text-[#133c55] dark:text-[#0264a1]">
           <span>
             <img
               src="https://i.ibb.co/ZWcm0D2/logo.jpg"
@@ -119,14 +119,14 @@ const Navbar = () => {
             {user ? (
               <button
                 onClick={logout}
-                className="lg:px-4 px-3 py-2 lg:text-lg font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+                className="lg:px-4 px-3 py-2 lg:text-lg font-semibold rounded-md dark:bg-[#133c55] dark:text-gray-50"
               >
                 LogOut
               </button>
             ) : (
               <button
                 onClick={logout}
-                className="lg:px-8 px-3 py-3 m-2 lg:text-lg font-semibold rounded-lg dark:bg-violet-600 dark:text-gray-50"
+                className="lg:px-8 px-3 py-3 m-2 lg:text-lg font-semibold rounded-lg dark:bg-[#133c55] dark:text-gray-50"
               >
                 Login
               </button>

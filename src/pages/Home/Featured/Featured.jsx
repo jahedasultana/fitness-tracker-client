@@ -4,7 +4,7 @@ import FeaturedCard from "./FeaturedCard";
 
 const Featured = () => {
     return (
-        <div>
+        <div className="bg-[#FFFFFF] dark:bg-[#1D232A] ">
              <SectionTitle
         subHeading="Interactive Workouts"
         heading="Feature Item"

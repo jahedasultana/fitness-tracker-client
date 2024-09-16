@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="my-16">
+    <div className="mb-24">
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen "
         style={{
-
+          
           backgroundImage:
             "url(https://i.ibb.co/yXMskVD/beautiful-brunette-female.jpg)",
         }}

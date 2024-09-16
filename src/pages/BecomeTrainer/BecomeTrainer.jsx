@@ -142,7 +142,7 @@ const BecomeATrainer = () => {
             <div>
               <label className="text-gray-200">Skill</label>
               <Select
-                className="px-4 py-2 mt-2 text-black"
+                className="px-4 text-black"
                 name="Skill"
                 options={skills}
                 labelField="label"
@@ -154,14 +154,22 @@ const BecomeATrainer = () => {
             <div>
               <label className="text-gray-200">Days</label>
               <Select
-                className="px-4 py-2 mt-2 text-black"
-                name="day"
-                options={options}
-                labelField="label"
-                valueField="value"
-                isMulti
-                onChange={setSelectedDays}
-              />
+  name="day"
+  options={options}
+  isMulti
+  onChange={setSelectedDays}
+  styles={{
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: '#4b5563', // Customize control background color (container)
+      color: 'white', // Text color
+      padding: '5px 2px',
+    }),
+ 
+   
+  }}
+/>
+
             </div>
             <div>
               <label className="text-gray-200 ">Times</label>

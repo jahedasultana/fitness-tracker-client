@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-black text-white rounded">
+    <footer className="footer border-t-2 border-gray-500 footer-center p-10 bg-[#1D232A] text-white rounded">
       <div>
         <img src='https://i.ibb.co/ZWcm0D2/logo.jpg' className="w-16 h-16" alt="" />
         <h2 className="text-3xl font-extrabold text-violet-500 ">Fitness Tracker</h2>

@@ -16,7 +16,7 @@ const Testimonials = () => {
       .then((data) => setReviews(data));
   }, []);
   return (
-    <section className="my-24">
+    <section className="my-24 bg-[#FFFFFF] dark:bg-[#1D232A]">
       <SectionTitle
         subHeading="What Our Client Say"
         heading="Testimonials"

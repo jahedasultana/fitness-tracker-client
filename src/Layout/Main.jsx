@@ -12,7 +12,7 @@ const Main = () => {
   
   }
     return (
-        <div>
+        <div className="dark:bg-gray-800">
            <div className="max-w-screen-xl mx-auto">
             <Navbar></Navbar>
            <Outlet></Outlet>

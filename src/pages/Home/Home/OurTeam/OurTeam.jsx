@@ -3,13 +3,13 @@ import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 const OurTeam = () => {
     return (
-        <div className="my-20">
+        <div className="my-20 dark:bg-gray-800 bg-gray-100">
             <SectionTitle
         subHeading="About Team"
         heading="Our team"
       ></SectionTitle>
 
-<section className="py-6 dark:bg-gray-800 bg-gray-100  dark:text-gray-300 text-gray-100">
+<section className="py-6   dark:text-gray-300 text-gray-100">
 	<div className="container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">
 	
 		<div className="flex flex-row flex-wrap-reverse justify-center">

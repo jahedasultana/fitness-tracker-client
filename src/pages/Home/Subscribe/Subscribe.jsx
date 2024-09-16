@@ -57,7 +57,8 @@ const Subscribe = () => {
                                     placeholder="Your name"
                                     className="w-full p-4 rounded-md focus:ring focus:ring-violet-400
                                     border border-gray-300 dark:border-gray-700
-                                    dark:bg-gray-800"
+                                    dark:bg-gray-800
+                                    text-gray-200"
                                     required
                                 />
                             </div>
@@ -72,7 +73,8 @@ const Subscribe = () => {
                                     placeholder="Email address"
                                     className="w-full p-4 rounded-md focus:ring focus:ring-violet-400 
                                     border border-gray-300 dark:border-gray-700
-                                    dark:bg-gray-800"
+                                    dark:bg-gray-800
+                                    text-gray-200"
                                     required
                                 />
                             </div>

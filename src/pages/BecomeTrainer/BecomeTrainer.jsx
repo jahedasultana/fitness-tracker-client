@@ -89,7 +89,7 @@ const BecomeATrainer = () => {
 
   return (
     <div>
-      <section className="max-w-4xl p-6 mx-auto my-16 bg-violet-500 text-white rounded-md shadow-md">
+      <section className="max-w-4xl p-6 mx-auto my-16 bg-[#133c55] text-white rounded-md shadow-md">
         <h2 className="text-4xl text-center font-semibold capitalize">Become A Trainer Form</h2>
         <form onSubmit={handleTrainer}>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -102,7 +102,8 @@ const BecomeATrainer = () => {
                 type="text"
                 disabled
                 placeholder="Full Name"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 dark:text-gray-300 bg-white
+                dark:bg-gray-700 border border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -113,7 +114,7 @@ const BecomeATrainer = () => {
                 defaultValue={user?.email}
                 name="email"
                 type="email"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -123,7 +124,7 @@ const BecomeATrainer = () => {
                 name="age"
                 type="number"
                 placeholder="Your age"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -135,7 +136,7 @@ const BecomeATrainer = () => {
                 type="text"
                 placeholder="Photo URL"
                 defaultValue={user?.photoURL}
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -163,9 +164,9 @@ const BecomeATrainer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-200">Times</label>
+              <label className="text-gray-200 ">Times</label>
               <Select
-                className="px-4 py-2 text-black"
+                className="px-4 py-2 text-black "
                 name="time"
                 options={times}
                 labelField="label"
@@ -180,7 +181,7 @@ const BecomeATrainer = () => {
                 id="experience"
                 name="experience"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -189,7 +190,7 @@ const BecomeATrainer = () => {
                 id="status"
                 name="status"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-orange-500 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 defaultValue="pending"
               />
             </div>
@@ -201,12 +202,12 @@ const BecomeATrainer = () => {
                 placeholder="Brief description about yourself"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border dark:bg-gray-700 dark:text-gray-300 border-gray-500 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               ></textarea>
             </div>
           </div>
           <div className="flex justify-end mt-6">
-            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-violet-800 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-violet-600 w-full">
+            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#1a618d] rounded-md hover:bg-[#366f92] focus:outline-none focus:bg-violet-600 w-full">
               Apply
             </button>
           </div>

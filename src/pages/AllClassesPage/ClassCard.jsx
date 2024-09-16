@@ -20,7 +20,7 @@ const ClassCard = ({ singleClass }) => {
 
 
   return (
-    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-lg border dark:bg-gray-50 dark:text-gray-800">
+    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-lg border bg-gray-100 dark:bg-gray-800 dark:text-gray-800">
       <div>
         <img
           src={image}

@@ -3,7 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ClassesSectionCard from "./ClassesSectionCard";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-
+import Marquee from "react-fast-marquee";
 
 const ClassesSection = () => {
     const axiosPublic = useAxiosPublic();
@@ -24,13 +24,17 @@ const ClassesSection = () => {
         subHeading="total booking counts"
         heading="Featured Classes"
       ></SectionTitle>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="flex gap-6 justify-center mt-16">
+
+        <Marquee>
         {
             classes.slice(0, 4).map(item => <ClassesSectionCard 
                 key={item._id}
                 item={item}
                 ></ClassesSectionCard>)
         }
+        </Marquee>
+       
       </div>
         </div>
     );

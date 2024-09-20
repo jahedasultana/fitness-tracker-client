@@ -6,6 +6,7 @@ import ClassesSection from "../ClassesSection/ClassesSection";
 import Testimonials from "../Testimonials/Testimonials";
 import OurTeam from "./OurTeam/OurTeam";
 import Subscribe from "../Subscribe/Subscribe";
+import Faq from "../../../components/Faq/Faq";
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <ClassesSection></ClassesSection>
             <Testimonials></Testimonials>
             <Subscribe></Subscribe>
+            <Faq></Faq>
             <OurTeam></OurTeam>
           
         </div>

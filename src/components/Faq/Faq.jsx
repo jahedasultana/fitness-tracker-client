@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaQuestion } from "react-icons/fa";
+
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Faq = () => {
@@ -28,7 +28,7 @@ const Faq = () => {
 
   return (
     <div className="container mx-auto p-5 md:space-y-12 space-y-6">
-      {/* <h2 className="md:text-3xl text-center text-xl font-medium mb-4 flex items-center gap-3"><FaQuestion/> Frequently Asked Questions</h2> */}
+     
       <SectionTitle heading={"FAQ"} subHeading={"Ask Question"}></SectionTitle>
 
       <div className="md:w-[60%] w-full pt-2 mx-auto h-[175px]">

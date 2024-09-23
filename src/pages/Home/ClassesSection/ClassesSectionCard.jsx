@@ -1,5 +1,5 @@
 const ClassesSectionCard = ({ item }) => {
-  const { image, description, total_bookings, className } = item;
+  const { image, description, className } = item;
   return (
   
     <div className="flex max-w-sm flex-col justify-center p-2 mx-2 shadow-md rounded-xl sm:px-8 dark:bg-gray-900 dark:text-gray-800 border-b-4 border-t border-r border-l border-b-[#133C55] dark:border-t-0 dark:border-r-0 dark:border-l-0">

@@ -68,7 +68,7 @@ const Banner = () => {
             </Link>
             <div className="md:space-y-5 space-y-2">
               <h5 className="md:text-2xl text-lg font-semibold text-black/80">
-                Trainer Name here || title
+                Trainer Name here || Name
               </h5>
               <p className="text-black/45 text-sm">Added: 02/03/2024</p>
             </div>

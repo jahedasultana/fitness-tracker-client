@@ -64,11 +64,11 @@ const Banner = () => {
         <div className="md:absolute -bottom-[60px] md:mt-0 mt-1 rounded-xl bg-white border border-gray-800/30 md:w-[70%] w-[90%] mx-auto md:p-6 p-4 shadow-md">
           <div className="flex justify-between md:flex-row flex-col md:space-y-0 space-y-3 md:relative">
           {/* <Link to='/allClasses'> */}
-            <button className="md:absolute text-center -top-10 bg-[#133c55] rounded-3xl py-2 px-5 text-sm font-medium text-white">Classes Page</button>
+            <button className="md:absolute text-center -top-10 bg-[#133c55] rounded-2xl py-1 px-5 text-sm font-medium text-white">Classes Page</button>
             {/* </Link> */}
             <div className="md:space-y-5 space-y-2">
               <h5 className="md:text-2xl text-lg font-semibold text-black/80">
-                property name here || title
+                Trainer Name here || title
               </h5>
               <p className="text-black/45 text-sm">Added: 02/03/2024</p>
             </div>

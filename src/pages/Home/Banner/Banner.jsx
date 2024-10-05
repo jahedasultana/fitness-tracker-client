@@ -48,7 +48,7 @@ const Banner = () => {
                 <img
                   src={image.src}
                   alt={`Slide ${index + 1}`}
-                  className="w-full md:h-[450px] h-[280px] object-cover"
+                  className="w-full aspect-auto md:h-[450px] h-[280px] object-cover"
                 />
                 <div className="absolute top-0 left-0 right-0 flex justify-center items-center h-full bg-black bg-opacity-40">
                   <h1 className="text-white text-3xl md:text-5xl font-bold px-4">
@@ -94,6 +94,3 @@ const Banner = () => {
 export default Banner;
 
 
-{/* <Link to='/allClasses'>
-<button className="px-8 py-3 m-2 text-lg font-semibold rounded-lg dark:bg-violet-600 dark:text-gray-50">Classes Page</button>
-</Link> */}

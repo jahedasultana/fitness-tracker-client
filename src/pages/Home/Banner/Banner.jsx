@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 const images = [
   {
     src: "https://i.postimg.cc/Gp3qKLHg/workout.jpg",
@@ -63,9 +63,9 @@ const Banner = () => {
         {/* property details */}
         <div className="md:absolute -bottom-[60px] md:mt-0 mt-1 rounded-xl bg-white border border-gray-800/30 md:w-[70%] w-[90%] mx-auto md:p-6 p-4 shadow-md">
           <div className="flex justify-between md:flex-row flex-col md:space-y-0 space-y-3 md:relative">
-          {/* <Link to='/allClasses'> */}
-            <button className="md:absolute text-center -top-10 bg-[#133c55] rounded-2xl py-1 px-5 text-sm font-medium text-white">Classes Page</button>
-            {/* </Link> */}
+          <Link to='/allClasses'>
+            <p className="md:absolute -top-[38px] bg-[#133c55] text-white rounded-3xl text-[13px] px-3 pb-[8px] pt-[3px]">Classes Page</p>
+            </Link>
             <div className="md:space-y-5 space-y-2">
               <h5 className="md:text-2xl text-lg font-semibold text-black/80">
                 Trainer Name here || title

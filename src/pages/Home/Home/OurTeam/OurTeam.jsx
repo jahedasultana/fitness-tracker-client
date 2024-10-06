@@ -52,7 +52,7 @@ const OurTeam = () => {
               </h2>
               <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300">
                 <span className="font-bold mr-2">Bio:</span>Megan is a yoga
-                instructor and wellness expert...
+                instructor and wellness expert....
               </p>
               <div className="flex justify-center space-x-4">
                 <a href="#" aria-label="Email" className="p-2">

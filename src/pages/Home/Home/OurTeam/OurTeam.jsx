@@ -3,7 +3,7 @@ import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 const OurTeam = () => {
     return (
-        <div className="my-20 bg-[#FFFFFF] dark:bg-[#1D232A]">
+        <div className="mb-20 mt-32 bg-[#FFFFFF] dark:bg-[#1D232A]">
             <SectionTitle
         subHeading="About Team"
         heading="Our team"

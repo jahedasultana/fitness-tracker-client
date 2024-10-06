@@ -11,25 +11,36 @@ const Faq = () => {
 
   const faqs = [
     {
-      question: "What is your return policy?",
+      question: "What are your gym's operating hours?",
       answer:
-        "Our return policy allows returns within 30 days of purchase. Please keep your receipt.",
+        "Our gym is open from 6 AM to 10 PM on weekdays and 8 AM to 8 PM on weekends.",
     },
     {
-      question: "How long does shipping take?",
+      question: "Do you offer personal training sessions?",
       answer:
-        "Shipping usually takes 5-7 business days, depending on your location.",
+        "Yes, we provide personal training sessions with certified trainers. Sessions can be booked at an additional cost.",
     },
     {
-      question: "Do you offer customer support?",
-      answer: "Yes, we offer 24/7 customer support through email and chat.",
+      question: "Is there a membership discount available?",
+      answer:
+        "We offer seasonal discounts on memberships. Check our website or visit our gym for the latest promotions.",
+    },
+    {
+      question: "What equipment is available in your gym?",
+      answer:
+        "We have a wide variety of equipment, including treadmills, weight machines, free weights, and cardio machines.",
+    },
+    {
+      question: "Are group fitness classes included in the membership?",
+      answer:
+        "Yes, group fitness classes such as yoga, spin, and strength training are included in most membership plans.",
     },
   ];
 
   return (
-    <div className="container mx-auto p-5 md:space-y-12 space-y-6">
+    <div className="container  mx-auto p-5 md:space-y-12 space-y-6">
      
-      <SectionTitle heading={"FAQ"} subHeading={"Ask Question"}></SectionTitle>
+      <SectionTitle heading={"Gym FAQ"} subHeading={"Frequently Asked Questions"}></SectionTitle>
 
       <div className="md:w-[60%] w-full pt-2 mx-auto h-[175px]">
         {faqs.map((faq, index) => (

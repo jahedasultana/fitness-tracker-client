@@ -58,7 +58,6 @@ const Banner = () => {
         </div>
 
         {/* property details */}
-        {/* property details */}
         <div className="md:absolute -bottom-[60px] md:mt-0 mt-1 rounded-xl bg-white dark:bg-gray-900 border border-gray-800/30 md:w-[70%] w-[90%] mx-auto md:p-6 p-4 shadow-md">
           <div className="flex justify-evenly md:flex-row flex-col md:space-y-0 space-y-3 md:relative">
             <Link

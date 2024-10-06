@@ -58,31 +58,45 @@ const Banner = () => {
         </div>
 
         {/* property details */}
-        <div className="md:absolute -bottom-[60px] md:mt-0 mt-1 rounded-xl bg-white border border-gray-800/30 md:w-[70%] w-[90%] mx-auto md:p-6 p-4 shadow-md">
+        {/* property details */}
+        <div className="md:absolute -bottom-[60px] md:mt-0 mt-1 rounded-xl bg-white dark:bg-gray-900 border border-gray-800/30 md:w-[70%] w-[90%] mx-auto md:p-6 p-4 shadow-md">
           <div className="flex justify-evenly md:flex-row flex-col md:space-y-0 space-y-3 md:relative">
-          <Link className="md:absolute right-5 -top-[38px] bg-[#133c55] text-white rounded-3xl text-[13px] px-3 pb-[8px] pt-[3px]" to='/allClasses'>
-           Class Page
+            <Link
+              className="md:absolute right-5 -top-[38px] bg-[#133c55] text-white rounded-3xl text-[13px] px-3 pb-[8px] pt-[3px]"
+              to="/allClasses"
+            >
+              Class Page
             </Link>
-            <div className="text-[#1a77b0] pt-2">
+
+            <div className="text-[#1a77b0] pt-2 dark:text-[#63cdda]">
               <IoTimerOutline className="md:text-6xl text-4xl" />
             </div>
+
             <div className="md:space-y-5 space-y-2">
-              <h5 className="md:text-2xl text-lg font-semibold text-black/80">
+              <h5 className="md:text-2xl text-lg font-semibold text-black/80 dark:text-white">
                 Morning
               </h5>
-              <p className="text-black/45 text-sm">8:00 AM - 11:00 AM</p>
+              <p className="text-black/45 text-sm dark:text-gray-300">
+                8:00 AM - 11:00 AM
+              </p>
             </div>
+
             <div className="md:space-y-5 space-y-2">
-              <h5 className="md:text-2xl text-lg font-semibold text-black/80">
+              <h5 className="md:text-2xl text-lg font-semibold text-black/80 dark:text-white">
                 Evening
               </h5>
-              <p className="text-black/45 text-sm">7:00 PM - 8:00 PM</p>
+              <p className="text-black/45 text-sm dark:text-gray-300">
+                7:00 PM - 8:00 PM
+              </p>
             </div>
+
             <div className="md:space-y-5 space-y-2">
-              <h5 className="md:text-2xl text-[#2383be] text-lg font-semibold">
+              <h5 className="md:text-2xl text-[#2383be] dark:text-[#63cdda] text-lg font-semibold">
                 Night
               </h5>
-              <p className="text-black/45 text-sm">9:00 PM - 10:00 PM</p>
+              <p className="text-black/45 text-sm dark:text-gray-300">
+                9:00 PM - 10:00 PM
+              </p>
             </div>
           </div>
         </div>

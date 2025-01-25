@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import useAuth from "../hooks/useAuth";
-
+import Banner from "../pages/Home/Banner/Banner";
 
 const Main = () => {
     const {  loading } = useAuth();
@@ -12,8 +12,9 @@ const Main = () => {
   
   }
     return (
-        <div className="dark:bg-gray-800">
+        <div className="dark:bg-gray-800 max-w-[1440px] mx-auto">
              <Navbar></Navbar>
+             <Banner></Banner>
            <div className="max-w-screen-xl mx-auto">
            <Outlet></Outlet>
            </div>

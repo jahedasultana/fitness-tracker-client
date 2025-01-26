@@ -100,7 +100,7 @@ const AddNewSlot = () => {
       <Helmet>
         <title>Trainer | Add Slot</title>
       </Helmet>
-      <div className="text-lg bg-black font-bold p-16 my-16 mx-2 rounded-md">
+      <div className="text-lg bg-[#143951] font-bold p-16 my-16 mx-2 rounded-md">
         <h2 className="text-4xl text-white font-lato text-center font-extrabold mb-6">
           Add New Slot
         </h2>
@@ -137,7 +137,7 @@ const AddNewSlot = () => {
             <div>
               <label className="text-white dark:text-gray-200">Days</label>
               <Select
-                className="px-4 py-2 mt-2"
+                className="py-2 mt-2"
                 name="day"
                 options={dayOptions}
                 labelField="label"
@@ -150,7 +150,7 @@ const AddNewSlot = () => {
             <div>
               <label className="text-white dark:text-gray-200">Time</label>
               <Select
-                className="px-4 py-2 mt-2"
+                className="py-2 mt-2"
                 name="time"
                 options={timeOptions}
                 labelField="label"
@@ -174,7 +174,7 @@ const AddNewSlot = () => {
           <div>
             <label className="text-white dark:text-gray-200">Class Name</label>
             <Select
-              className="px-4 py-2 mt-2"
+              className="py-2 mt-2"
               name="Skill"
               options={classes?.length > 0 ? classes?.map(c => ({ value: c.className, label: c.className })) : []}
               labelField="label"
@@ -187,7 +187,7 @@ const AddNewSlot = () => {
           <button
             disabled={loading}
             type="submit"
-            className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-orange-400"
+            className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#143951] hover:bg-gray-800 border border-gray-400"
           >
             {loading ? (
               <TbFidgetSpinner className="m-auto animate-spin" size={24} />

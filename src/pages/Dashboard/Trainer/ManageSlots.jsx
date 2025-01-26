@@ -60,8 +60,8 @@ const ManageSlots = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-semibold text-gray-700 capitalize dark:text-white">Manage Slots</h1>
       <section className="container px-4 mx-auto">
+      <h1 className="text-xl font-semibold text-gray-700 capitalize dark:text-white">Manage Slots</h1>
         <div className="flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -86,7 +86,7 @@ const ManageSlots = () => {
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <button
                             onClick={handleDelete}
-                            className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none"
+                            className="text-white transition-colors duration-200 focus:outline-none"
                           >
                             Delete All
                           </button>

@@ -21,8 +21,8 @@ const AllSubscribers = () => {
         <div className="mb-20">
             <SectionTitle heading="Subscribers" />
             <div className="overflow-x-auto rounded-xl">
-                <table className="min-w-full bg-white dark:bg-gray-800">
-                    <thead className="bg-violet-900 text-lg font-bold text-white">
+                <table className="min-w-full bg-white">
+                    <thead className="bg-[#143951] text-lg font-bold text-white">
                         <tr>
                             <th className="w-1/3 px-4 py-4">Name</th>
                             <th className="w-1/3 px-4 py-4">Email</th>
@@ -31,7 +31,7 @@ const AllSubscribers = () => {
                     </thead>
                     <tbody>
                         {subscribers.map((subscriber, index) => (
-                            <tr key={index} className="bg-violet-500 font-bold text-white">
+                            <tr key={index} className="bg-[#143951]/80 hover:bg-[#143951]/85 font-bold text-white">
                                 <td className="border px-4 py-4">{subscriber?.name}</td>
                                 <td className="border px-4 py-4">{subscriber?.email}</td>
                                

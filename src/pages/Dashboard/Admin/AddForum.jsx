@@ -76,7 +76,7 @@ const AddForum = () => {
       <Helmet>
         <title>Admin | Add Post</title>
       </Helmet>
-      <div className="text-lg bg-violet-900 font-bold p-4 md:p-8 lg:p-16 my-16 mx-2 rounded-md">
+      <div className="text-lg bg-[#143951] font-bold p-4 md:p-8 lg:p-16 my-16 mx-2 rounded-md">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-white font-lato text-center font-extrabold mb-6">
           Add Post
         </h2>
@@ -182,7 +182,7 @@ const AddForum = () => {
           <button
             disabled={loading}
             type="submit"
-            className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500"
+            className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#143951] hover:bg-gray-800 border border-gray-500"
           >
             {loading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />

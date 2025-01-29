@@ -9,7 +9,6 @@ const Balance = () => {
     const [subscribers, setSubscribers] = useState([]);
     const [trainers, setTrainers] = useState([]);
     
-
     useEffect(() => {
         fetch('https://fitness-tracker-server-lemon.vercel.app/subscribers')
             .then(res => res.json())
@@ -38,8 +37,8 @@ const Balance = () => {
         <div className="mb-20">
             <SectionTitle heading="Balance" />
             <div className="overflow-x-auto rounded-xl">
-                <table className="min-w-full bg-violet-500 text-white ">
-                    <thead className="bg-violet-900 text-lg font-bold text-white">
+                <table className="min-w-full text-white">
+                    <thead className="bg-[#143951] text-lg font-bold text-white">
                         <tr className="text-left text-white">
                             <th className="px-4 py-4">Sl</th>
                             <th className="w-1/3 px-4 py-4">Email</th>
@@ -50,7 +49,7 @@ const Balance = () => {
                     </thead>
                     <tbody>
                         {trainers?.slice(-6).reverse().map((subscriber, index) => {
-                            return <tr key={subscriber._id} className="font-bold text-white">
+                            return <tr key={subscriber._id} className="font-bold text-white bg-[#37576B]">
                                 <td className="border px-4 py-4">{index + 1}</td>
                                 <td className="border px-4 py-4">{subscriber?.email}</td>
                                 <td className="border px-4 py-4">{subscriber?.package_name}</td>
@@ -65,7 +64,7 @@ const Balance = () => {
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th className="border px-4 py-4">Total: {calculateTotal()}</th>
+                            <th className="border px-4 py-4 text-black/90 dark:text-white/90">Total: {calculateTotal()}</th>
                         </tr>
                     </tfoot>
                 </table>

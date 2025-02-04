@@ -36,12 +36,12 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">Home</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">Workouts</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">Nutrition Plans</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">Community</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">Home</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">About Us</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">Workouts</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">Nutrition Plans</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">Community</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#133C55] transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -50,15 +50,15 @@ export default function Footer() {
             <h4 className="text-lg font-semibold">Contact Us</h4>
             <ul className="space-y-5">
               <li className="flex items-start space-x-3 text-gray-400">
-                <MapPin className="h-5 w-5 shrink-0 text-primary" />
+                <MapPin className="h-5 w-5 shrink-0 text-[#133C55]" />
                 <span>123 Fitness Street, Workout City, SP 12345</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400">
-                <Phone className="h-5 w-5 shrink-0 text-primary" />
+                <Phone className="h-5 w-5 shrink-0 text-[#133C55]" />
                 <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400">
-                <Mail className="h-5 w-5 shrink-0 text-primary" />
+                <Mail className="h-5 w-5 shrink-0 text-[#133C55]" />
                 <span>support@fittrack.com</span>
               </li>
             </ul>
@@ -74,7 +74,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
-              <button className="w-full flex items-center justify-center px-4 py-2 rounded-md bg-primary text-white font-medium hover:bg-primary/90 transition-colors">
+              <button className="w-full flex items-center justify-center px-4 py-2 rounded-md bg-[#133C55] text-white font-medium hover:bg-[#133C55]/90 transition-colors">
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>

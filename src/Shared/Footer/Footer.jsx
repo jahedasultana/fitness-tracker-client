@@ -13,19 +13,19 @@ export default function Footer() {
               Your ultimate fitness companion. Track your workouts, set goals, and achieve your fitness dreams with us.
             </p>
             <div className="flex space-x-4">
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link to="#" className="hover:text-[#133C55] transition-colors">
                 <Facebook className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link to="#" className="hover:text-[#133C55] transition-colors">
                 <Instagram className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link to="#" className="hover:text-[#133C55] transition-colors">
                 <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link to="#" className="hover:text-primary transition-colors">
+              <Link to="#" className="hover:text-[#133C55] transition-colors">
                 <Youtube className="h-6 w-6" />
                 <span className="sr-only">YouTube</span>
               </Link>

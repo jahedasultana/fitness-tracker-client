@@ -72,13 +72,13 @@ const ClassCard = ({ singleClass }) => {
 
       {/* View details button */}
       <div className="p-5 pt-0">
-        <Link
-          to={`/class/${_id}`}
-          className="flex items-center justify-center w-full py-2.5 px-4 bg-[#143951] hover:bg-[#0e2a3c] text-white rounded-lg transition-colors group/btn"
-        >
-          <span>View Details</span>
-          <ArrowRight size={16} className="ml-2 transform group-hover/btn:translate-x-1 transition-transform" />
-        </Link>
+        
+        <button className="flex items-center justify-center w-full py-2.5 px-4 bg-[#143951] hover:bg-[#0e2a3c] text-white rounded-lg transition-colors group/btn">
+        <span>View Details</span>
+        <ArrowRight size={16} className="ml-2 transform group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+        
+
       </div>
     </div>
   )

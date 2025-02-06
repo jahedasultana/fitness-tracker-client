@@ -43,7 +43,7 @@ const Login = () => {
           <Helmet>
                 <title>Foods Project | Login</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200 my-16 rounded-2xl">
+            <div className="hero min-h-screen my-8 rounded-2xl bg-[url('https://i.postimg.cc/4Nm4YYnb/anot.jpg')] bg-cover bg-center">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
     <h2 className="text-3xl text-center font-bold p-4 pt-8">Login your account</h2>

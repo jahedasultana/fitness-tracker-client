@@ -77,7 +77,7 @@ const Register = () => {
       <Helmet>
                 <title>Foods Project | Register</title>
             </Helmet>
-      <div className="hero min-h-screen bg-base-200 my-14 rounded-2xl">
+      <div className="hero min-h-screen my-8 rounded-2xl bg-[url('https://i.postimg.cc/4Nm4YYnb/anot.jpg')] bg-cover bg-center">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card lg:m-12 shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <h2 className="text-4xl text-center font-bold p-4 pt-8">

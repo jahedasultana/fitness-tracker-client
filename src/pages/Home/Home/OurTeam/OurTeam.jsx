@@ -4,13 +4,13 @@ import { FaFacebook, FaTwitter, FaDribbble } from "react-icons/fa";
 
 const OurTeam = () => {
   return (
-    <div className="mb-20 mt-32 bg-white dark:bg-[#1D232A]">
+    <div className="md:my-16 my-8">
       <SectionTitle subHeading="About Team" heading="Our team" />
 
-      <section className="py-6 text-gray-800 dark:text-gray-300">
+      <section className=" text-gray-800 dark:text-gray-300">
         <div className="container mx-auto p-4 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {/* Team Member Card */}
-          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-none dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
+          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-600/60 dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
             <img
               src="https://img.freepik.com/free-photo/sports-blonde-sportswear-training-gym_1157-30046.jpg?t=st=1728223080~exp=1728226680~hmac=6b99dd79be2cffddc46c46e93a4fb6004e5625db6a1351af2237a0c6320cfdd5&w=826"
               alt="Team member"
@@ -40,7 +40,7 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-none dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
+          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-600/60 dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
             <img
               src="https://img.freepik.com/free-photo/attractive-sports-girl-personal-trainer-middle-modern-gym-with-workout-plan-her-hands_496169-2795.jpg?t=st=1728223008~exp=1728226608~hmac=408b7532da3a1a1c3e7a74f885d4c9116db7573a4ff07414c08dcb4abe084df9&w=826"
               alt="Team member"
@@ -70,7 +70,7 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-none dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
+          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-600/60 dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
             <img
               src="https://img.freepik.com/free-photo/funny-stylish-bodybuilder-with-tattoo-his-arm-doing-exercises-with-dumbbells-isolated-dark-background_613910-5149.jpg?t=st=1728222571~exp=1728226171~hmac=10f36e147e205f8e604ecbd874d2583919c7c6778d158d5868f4b9060b2fc488&w=740"
               alt="Team member"
@@ -100,7 +100,7 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-none dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
+          <div className="flex flex-col items-center max-w-xs p-6 shadow-lg rounded-xl bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-600/60 dark:shadow-md dark:text-gray-300 transition-transform transform hover:scale-105">
             <img
               src="https://img.freepik.com/free-photo/young-sports-man-training-gym_1303-20716.jpg?t=st=1728222774~exp=1728226374~hmac=518c072a48a383bf2f2b6cda5ade179cbac8e60a3ca9eea4eb23e39bd6e4e74f&w=826"
               alt="Team member"

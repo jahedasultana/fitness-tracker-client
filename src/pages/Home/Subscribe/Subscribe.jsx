@@ -37,7 +37,7 @@ const Subscribe = () => {
   };
 
   return (
-    <div className="mb-12 bg-gray-100 dark:bg-[#1D232A]">
+    <div>
       <SectionTitle heading="Newsletter" />
       <section className="p-6 text-gray-100 dark:text-gray-800">
         <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">

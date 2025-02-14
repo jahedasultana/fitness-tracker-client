@@ -1,25 +1,25 @@
 const FeaturedCard = () => {
   return (
-    <div className=" grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 my-16  bg-[#FFFFFF] dark:bg-[#1D232A] text-gray-700 dark:text-gray-300">
-     {
-      data.map((t) =>( <div key={t.heading} className="rounded-md bg-gray-50 dark:bg-gray-800 border dark:border-gray-500  border-gray-300 shadow-lg sm:w-96 p-4">
-        <div className="overflow-hidden">
-          <img
-            src={t.image}
-            alt=""
-            className="object-cover object-center rounded-md w-full h-72 bg-gray-500 transition-all duration-700 dark:bg-gray-500 hover:scale-150"
-          />
-        </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 md:gap-8 gap-4 text-gray-700 dark:text-gray-300 md:px-0 px-2">
+    {
+     data.map((t) =>( <div key={t.heading} className="rounded-md bg-gray-50 dark:bg-gray-800 border dark:border-gray-500  border-gray-300 shadow-lg sm:w-96 p-4">
+       <div className="overflow-hidden">
+         <img
+           src={t.image}
+           alt=""
+           className="object-cover object-center rounded-md w-full h-72 bg-gray-500 transition-all duration-700 dark:bg-gray-500 hover:scale-150"
+         />
+       </div>
 
-        <div className="p-4 text-center">
-          <h2 className="text-3xl font-extrabold tracking-wide mb-2">{t.heading}</h2>
-          <p>{t.paragraph}</p>
-        </div>
-      </div>)
-      )
-     }
-     
-    </div>
+       <div className="p-4 text-center">
+         <h2 className="md:text-3xl text-xl font-extrabold tracking-wide mb-2">{t.heading}</h2>
+         <p className="text-sm md:text-base">{t.paragraph}</p>
+       </div>
+     </div>)
+     )
+    }
+    
+   </div>
   );
 };
 

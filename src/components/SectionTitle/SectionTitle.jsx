@@ -1,10 +1,19 @@
-const SectionTitle = ({ heading, subHeading }) => {
-  return (
-    <div className="mx-auto text-center md:w-4/12 my-8">
-      <p className="text-yellow-600 mb-2">---{subHeading}---</p>
-      <h3 className="text-4xl uppercase                dark:text-gray-400 text-gray-600 border-y-4 border-gray-500  py-4">{heading}</h3>
-    </div>
-  );
-};
+import { IoMdFitness } from "react-icons/io";
 
-export default SectionTitle;
+export default function SectionTitle({ heading, subHeading }) {
+  return (
+    <section className="px-4 py-6 md:py-10 lg:py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-2 lg:grid-cols-2 lg:gap-12">
+          <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold tracking-tight flex items-center gap-2">
+            <IoMdFitness/>
+           {heading}
+          </h1>
+          <p className="md:text-lg text-xs">
+            {subHeading || "How to Personalize Your Fitness Journey Based on Your Goals, Lifestyle, and Abilities."}
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}

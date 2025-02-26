@@ -1,125 +1,127 @@
-import { Link, NavLink } from "react-router-dom";
-
-import { renderToString } from "react-dom/server";
+import { useState } from "react";
+import { Link, NavLink,} from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import { RiMenuAddFill } from "react-icons/ri";
+import { VscChromeClose } from "react-icons/vsc";
+import { renderToString } from "react-dom/server";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { logout, user } = useAuth();
 
   const tooltipContent = <>{user?.displayName || "User name not found"}</>;
   const tooltipString = renderToString(tooltipContent);
 
-  const navLinks = (
-    <>
-      <li className="font-semibold hover:underline">
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li className="font-semibold hover:underline">
-        <NavLink to="/allTrainer">All Trainer</NavLink>
-      </li>
-      <li className="font-semibold hover:underline">
-        <NavLink to="/allClasses">All Classes</NavLink>
-      </li>
-      <li className="font-semibold hover:underline">
-        <NavLink to="/community">Community</NavLink>
-      </li>
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-      {user && (
-        <li className="font-semibold hover:underline">
-          <NavLink to="/dashboard">Dashboard</NavLink>
-        </li>
-      )}
-    </>
-  );
   return (
-    <div className="navbar bg-base-100 border-b-2 flex items-center justify-between">
-      <div className="navbar-start w-auto">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
+    <nav className="text-black dark:bg-[#133C55]/50 bg-[#133C55]/90 relative">
+      <div className="mx-auto flex justify-between items-center">
+        <div className="w-full">
+          {/* first part */}
+          <div className="flex justify-between items-center w-full py-5 md:px-10 px-3">
+            <div>
+              <img className="md:w-[55%] w-[45%]" src="https://i.postimg.cc/SNvKhfT6/Screenshot-from-2025-02-26-21-50-36-removebg-preview.png" alt="logo" />
+            </div>
 
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box "
-          >
-            {navLinks}
-          </ul>
-        </div>
-        <div className="font-pop font-bold lg:text-2xl  sm:flex items-center justify-center text-[#133c55] dark:text-[#0264a1]">
-          <span>
-            <img
-              src="https://i.ibb.co/ZWcm0D2/logo.jpg"
-              alt=""
-              className="w-12 h-12 hidden sm:block mr-2"
-            />
-          </span>
-          <span className="lg:text-3xl text-xl md:text-2xl font-extrabold">
-            Fitness Tracker
-          </span>
-        </div>
-      </div>
-      <div className="navbar-center  hidden lg:flex">
-        <ul className="menu menu-horizontal  px-1">{navLinks}</ul>
-      </div>
+            <div className="hidden md:flex items-center justify-center gap-5">
+              {/* karpa start */}
+              <div className="flex gap-4">
+                {user && (
+                  <div className="navbar-end">
+                    <div className="dropdown dropdown-end ">
+                      <label
+                        tabIndex={0}
+                        className="tooltip tooltip-bottom avatar"
+                        data-tip={tooltipString}
+                      >
+                        <div className="lg:w-[44px] w-[32px] rounded-full ">
+                          <img
+                            src={
+                              user?.photoURL ||
+                              "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                            }
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                )}
 
-      <div className="flex items-center md:gap-4 gap-2">
-        {user && (
-          <div className="navbar-end">
-            <div className="dropdown dropdown-end ">
-              <label
-                tabIndex={0}
-                className="tooltip tooltip-bottom avatar"
-                data-tip={tooltipString}
-              >
-                <div className="lg:w-[44px] w-[32px] rounded-full ">
-                  <img
-                    src={
-                      user?.photoURL ||
-                      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                    }
-                  />
+                <div className="">
+                  <Link to="/login">
+                    {user ? (
+                      <button
+                        onClick={logout}
+                        className="lg:px-4 px-3 py-2 lg:text-lg font-semibold rounded-md bg-[#113a53] text-white shadow-md"
+                      >
+                        LogOut
+                      </button>
+                    ) : (
+                      <button
+                        onClick={logout}
+                        className="lg:px-8 px-3 py-3 m-2 lg:text-lg font-semibold rounded-lg bg-[#113a53] text-white shadow-md"
+                      >
+                        Login
+                      </button>
+                    )}
+                  </Link>
                 </div>
-              </label>
+              </div>
+              {/* karpa end */}
             </div>
           </div>
-        )}
 
-        <div className="">
-          <Link to="/login">
-            {user ? (
-              <button
-                onClick={logout}
-                className="lg:px-4 px-3 py-2 lg:text-lg font-semibold rounded-md dark:bg-[#133c55] dark:text-gray-50"
-              >
-                LogOut
-              </button>
-            ) : (
-              <button
-                onClick={logout}
-                className="lg:px-8 px-3 py-3 m-2 lg:text-lg font-semibold rounded-lg dark:bg-[#133c55] dark:text-gray-50"
-              >
-                Login
-              </button>
-            )}
-          </Link>
+          {/* second part */}
+          <div className="hidden md:flex dark:bg-[#133C55]/70 bg-[#133C55] text-white/95 py-5 pl-10 border-b border-[#0a2231] shadow">
+            <div className="hidden md:flex lg:gap-16 md:gap-5 text-center">
+              {/* again karpa start */}
+
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/allTrainer">All Trainer</NavLink>
+              <NavLink to="/allClasses">All Classes</NavLink>
+              <NavLink to="/community">Community</NavLink>
+              {user && (
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Hamburger Icon */}
+        <div className="md:hidden pr-3 text-white">
+          <button id="btn" onClick={toggleMenu}>
+            {
+              isOpen
+                ? <VscChromeClose size={30} />
+                : <RiMenuAddFill size={30} />
+            }
+
+          </button>
+        </div>
+        
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`w-full md:hidden mt-4 absolute top-[70px] z-10 bg-[#133C55]/80 text-white py-7 transition-all duration-300 ease-in-out transform ${isOpen
+          ? "translate-y-0 opacity-100"
+          : "translate-y-[-20px] opacity-0 pointer-events-none"
+          }`}
+      >
+        <div className="flex items-center flex-col space-y-2">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/allTrainer">All Trainer</NavLink>
+          <NavLink to="/allClasses">All Classes</NavLink>
+          <NavLink to="/community">Community</NavLink>
+          {user && (
+              <NavLink to="/dashboard">Dashboard</NavLink>
+          )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -35,10 +35,10 @@ const Profile = () => {
                         />
                     </a>
 
-                    <p className="p-2 uppercase px-4 text-xs text-white font-bold rounded-full bg-violet-500 mt-4">
+                    <p className="p-2 uppercase px-4 text-xs text-white font-bold rounded-full bg-[#133C55] mt-4">
                         {role}
                     </p>
-                    <p className="mt-2 text-sm bg-violet-500 font-medium text-white px-4 py-2 rounded-full">
+                    <p className="mt-2 text-sm bg-[#133C55] font-medium text-white px-4 py-2 rounded-full">
                         User Id: {user?.uid}
                     </p>
                     <div className="w-full p-4 mt-4 bg-gray-50 rounded-b-2xl">

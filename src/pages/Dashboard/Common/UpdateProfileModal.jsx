@@ -40,7 +40,7 @@ const UpdateProfileModal = () => {
     <>
       <Button
         onClick={open}
-        className="rounded-md py-2 px-4 text-sm font-medium text-white focus:outline-none  data-[focus]:outline-1 data-[focus]:outline-white bg-violet-500 cursor-pointer hover:bg-[#8140af] block mb-1"
+        className="rounded-md py-2 px-4 text-sm font-medium text-white focus:outline-none  data-[focus]:outline-1 data-[focus]:outline-white bg-[#133C55] cursor-pointer hover:bg-[#133C55]/90 block mb-1"
       >
         Update Profile
       </Button>
@@ -61,7 +61,7 @@ const UpdateProfileModal = () => {
                 leaveFrom="opacity-100 transform-[scale(100%)]"
                 leaveTo="opacity-0 transform-[scale(95%)]"
               >
-                <DialogPanel className="w-full max-w-md rounded-xl bg-violet-500 p-6 backdrop-blur-2xl">
+                <DialogPanel className="w-full max-w-md rounded-xl bg-[#133C55] p-6 backdrop-blur-2xl">
                   <DialogTitle
                     as="h3"
                     className=" font-medium text-black w-full"

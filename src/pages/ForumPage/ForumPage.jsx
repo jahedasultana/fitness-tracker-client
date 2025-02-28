@@ -29,7 +29,7 @@ const ForumPage = () => {
       </Helmet>
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 dark:text-white">
-          Forum <span className="text-[#143951] dark:text-">Discussions</span>
+          Forum Discussions
         </h1>
 
         {isLoading ? (

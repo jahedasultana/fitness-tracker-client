@@ -35,7 +35,7 @@ const AllTrainers = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center my-40 text-purple-700 mt-44 items-center">
+      <div className="flex justify-center my-40 text-white mt-44 items-center">
         <span className="loading loading-spinner loading-lg "></span>
       </div>
     );
@@ -44,8 +44,8 @@ const AllTrainers = () => {
     <div className="mb-20">
       <SectionTitle heading="trainers" />
       <div className="overflow-x-auto text-white rounded-xl">
-        <table className="min-w-full bg-white dark:bg-violet-500">
-          <thead className="bg-violet-900 text-lg font-bold text-white">
+        <table className="min-w-full">
+          <thead className="bg-[#143951] text-lg font-bold text-white">
             <tr className="text-left">
               <th className="w-1/3 px-4 py-4">Sl</th>
               <th className="w-1/3 px-4 py-4">Name</th>
@@ -58,7 +58,7 @@ const AllTrainers = () => {
           </thead>
           <tbody>
             {trainers.map((subscriber, index) => (
-              <tr key={subscriber._id} className="font-bold text-white">
+              <tr key={subscriber._id} className="font-bold text-white bg-[#37576B]">
                 <td className="border px-4 py-4">{index + 1}</td>
                 <td className="border px-4 py-4">{subscriber?.name}</td>
                 <td className="border px-4 py-4">{subscriber?.email}</td>
@@ -69,7 +69,7 @@ const AllTrainers = () => {
                     onClick={() => {
                       handleDelete(subscriber?.email);
                     }}
-                    className="btn btn-sm btn-success text-white"
+                    className="btn btn-sm bg-red-500 text-white"
                   >
                     Remove
                   </button>

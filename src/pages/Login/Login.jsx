@@ -71,7 +71,7 @@ const Login = () => {
           {errors.password && <span className="text-red-600">This field is required</span>}
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-gradient-to-r bg-violet-500 text-white">Login</button>
+          <button className="btn bg-gradient-to-r hover:bg-[#143951]/80 bg-[#143951] text-white">Login</button>
         </div>
      
       </form>

@@ -37,18 +37,18 @@ const AppliedTrainer = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center my-12 bg-violet-900 mt-44 items-center">
+      <div className="flex justify-center my-12 bg-[#143951] mt-44 items-center">
         <span className="loading loading-spinner loading-lg "></span>
       </div>
     );
   }
 
   return (
-    <div className="mb-20 bg-white p-6 rounded-lg shadow-lg">
+    <div className="mb-20 p-6">
       <SectionTitle heading="Applied Trainers" />
       <div className="overflow-x-auto rounded-xl">
-        <table className="min-w-full bg-white dark:bg-violet-500 divide-y divide-gray-200">
-          <thead className="bg-violet-900 text-sm font-bold text-white">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-[#143951] text-sm font-bold text-white">
             <tr className="text-left">
               <th className="px-2 py-3">Sl</th>
               <th className="px-2 py-3">Email</th>
@@ -64,7 +64,7 @@ const AppliedTrainer = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {trainers?.map((trainer, index) => (
-              <tr key={trainer._id} className="text-sm font-semibold text-gray-900 dark:text-white">
+              <tr key={trainer._id} className="text-sm font-semibold bg-[#37576B] text-white">
                 <td className="px-3 py-3">{index + 1}</td>
                 <td className="px-3 py-3">{trainer?.email}</td>
                 <td className="px-3 py-3">{trainer?.status}</td>

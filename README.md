@@ -1,7 +1,7 @@
 # Fitness-Tracker
 
 - assignment12_category_0010
-- Working live link: https://jade-gingersnap-ed17f2.netlify.app
+- Working live link: https://pha12-fitness-tracker-client-seven.vercel.app
 - github-client-side-link: https://github.com/jahedasultana/pha12-fitness-tracker-client
 - github-server-link: https://github.com/jahedasultana/pha12-fitness-tracker-server
 

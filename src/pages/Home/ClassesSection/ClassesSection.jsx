@@ -21,7 +21,7 @@ const ClassesSection = () => {
     return (
         <div className="my-20">
                   <SectionTitle
-        subHeading="total booking counts"
+        subHeading="Explore our top fitness classes designed to help you stay active, strong, and motivated every day."
         heading="Featured Classes"
       ></SectionTitle>
       <div className="flex gap-6 justify-center mt-16">

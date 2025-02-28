@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaDribbble } from "react-icons/fa";
 const OurTeam = () => {
   return (
     <div className="md:my-16 my-8">
-      <SectionTitle subHeading="About Team" heading="Our team" />
+      <SectionTitle subHeading="Meet our expert trainers dedicated to guiding you on your fitness journey with motivation and support." heading="Our team" />
 
       <section className=" text-gray-800 dark:text-gray-300">
         <div className="container mx-auto p-4 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

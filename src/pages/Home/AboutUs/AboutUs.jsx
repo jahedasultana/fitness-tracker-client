@@ -3,7 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const AboutUs = () => {
   return (
     <div className="">
-      <SectionTitle heading="About Us"></SectionTitle>
+      <SectionTitle heading="About Us" subHeading="Learn about our mission to inspire and support your fitness journey with top-quality gear and expert guidance."></SectionTitle>
       <div>
         <section className="">
           <div className="container flex flex-col-reverse mx-auto lg:flex-row rounded-2xl md:px-0 px-2">

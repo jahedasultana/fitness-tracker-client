@@ -86,7 +86,7 @@ const ManageSlots = () => {
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <button
                             onClick={handleDelete}
-                            className="text-white hover:bg-[#143951]/80 bg-[#143951] transition-colors duration-200 focus:outline-none"
+                            className="text-white px-3 py-2 rounded-md hover:bg-[#143951]/80 bg-[#143951] transition-colors duration-200 focus:outline-none"
                           >
                             Delete All
                           </button>

@@ -89,7 +89,7 @@ const BookedTrainer = () => {
                 <td>
                   <label
                     htmlFor="review-modal"
-                    className="btn hover:bg-[#143951]/80 bg-[#143951]"
+                    className="btn hover:bg-[#143951]/80 bg-[#143951] text-white"
                     onClick={() => setSelectedTrainer(payment)}
                   >
                     Review

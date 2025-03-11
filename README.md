@@ -28,7 +28,7 @@
 
 ## Technologies Used
 
-- *Frontend*: React, react-router-dom, axios, JWT for authentication, React-simple-typewriter, React Awesome reveal.
+- *Frontend*: React, react-router-dom, axios, JWT for authentication, React-simple-typewriter, React Awesome reveal, TanStack Query
 - *Backend*: Node.js, Express.js, MongoDB for database management.
 - *Additional Tools*: Firebase for environment variables, Vercel for deployment.
 

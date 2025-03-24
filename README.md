@@ -11,7 +11,15 @@
 ## Project Description: FitnessTracker
 - FitnessTracker is a comprehensive fitness management platform designed to empower individuals to achieve their health and wellness goals. Our platform leverages cutting-edge technology to create an engaging and supportive community for users to track their fitness progress, set goals, and connect with trainers and peers.
 
-### User, Trainer and Admin Cradiential
+### Trainer and Admin Cradiential
+
+#### Admin
+- Email: admin99@gmail.com
+- Password: 12345678Fi
+
+#### Trainer
+- Email: tainer99@gmail.com
+- Password: 12345678Fi
 
 ## Website Features
 

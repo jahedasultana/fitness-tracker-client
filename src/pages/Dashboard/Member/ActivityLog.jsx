@@ -15,7 +15,7 @@ const ActivityLog = () => {
         queryKey: ['slots', user?.email],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/slots/${user?.email}`);
-            return [data];
+            return data;
         }
     });
    
@@ -62,7 +62,7 @@ const ActivityLog = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="4">No applications found</td>
+                                <td className="text-center" colSpan="4">No applications found</td>
                             </tr>
                         )}
                     </tbody>
